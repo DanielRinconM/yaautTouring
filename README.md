@@ -1,1 +1,2 @@
 # yaautTouring
+Proyecto colaborativo YaautTouring
