@@ -1,0 +1,40 @@
+1) Asegurarse que estas en el main branch
+$> git checkout main
+2) Hacer pull para traer los cambios mas recientes al main
+$> git pull origin main
+
+3) Crear nueva branch
+$> git branch [[nombreNuevaBrach]]
+
+3.2) Pasarte a nueva branch
+$> git checkout [[nombreNuevaBrach]]
+
+4)Realizar cambios a codigo
+
+5) Agregamos a etapa "Stagin"
+$> git add -A
+
+6) Agregamos commit con comentarios utiles para control de cambios
+$> git commit -m "[[Comentario util]]"
+
+7)Subimos branch a repositorio publico o main
+$> git push origin [[nombreNuevaBranch]]
+
+8)Nos pasamos al branch main
+$> git checkout main
+
+9)Si queremos saber si esta mergeada (Obvio no lo esta)
+$> git branch  --merged
+//nos aparece solo * main que quiere decir que no se ha juntado
+
+10)Unimos nuestra branch al main
+$> git merge [[nombreNuevaBranch]]
+
+11)Subimos cambios a internet
+$> git push origin main
+
+--------- Extras -----------
+Borrar branches que ya fueron integradas 
+$> git branch -d [[NombreBranch]]
+
+FUENTE: [min 17:02] https://www.youtube.com/watch?v=kEPF-MWGq1w&t=929s
