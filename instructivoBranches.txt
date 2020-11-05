@@ -34,7 +34,10 @@ $> git merge [[nombreNuevaBranch]]
 $> git push origin main
 
 --------- Extras -----------
-Borrar branches que ya fueron integradas 
+Borrar branches que ya fueron integradas de manera local
 $> git branch -d [[NombreBranch]]
 
+
+Borrar branches que ya fueron integradas en github
+$> git push origin --delete [[NombreBranch]]
 FUENTE: [min 17:02] https://www.youtube.com/watch?v=kEPF-MWGq1w&t=929s
