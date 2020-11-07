@@ -5,12 +5,57 @@
 }
 
 body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
 	font-family: 'Karla', sans-serif;
 	background: #F3F3F3;
 	color: #000000;
 	font-weight: 300;
 	font-size: 16px;
 }
+
+
+/* ESTILOS DE PAGINA LOGIN */
+
+	.Log {
+		width: 100%;
+		max-width: 1920px;
+		height: 100%;
+		display: grid;
+		grid-template-rows: 60px auto;
+	}
+
+	.Login {
+		background: #FFFFFF;
+		align-self: center;
+		justify-self: center;
+		padding: 20px;
+		display: grid;
+		grid-gap: 20px;
+		grid-template-rows: repeat(4, auto);
+		box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+	}
+
+	.Login input {
+		width: 300px;
+	}
+
+	.User{
+		align-self: center;
+		justify-self: center;
+	}
+
+	.Password{
+		align-self: center;
+		justify-self: center;
+	}
+
+	.Login .BtnAcept {
+		margin-top: 50px;
+		align-self: center;
+		justify-self: center;
+	}
 
 /* ESTILOS DE PAGINA CLIENTES */
 
@@ -41,26 +86,42 @@ body {
 				width: 300px;
 			}
 
+			#Check:checked ~ .IconMenu {
+				transform: translate(300px, 0);
+			}
+
+			#Check:checked ~ .Fondo {
+				visibility: visible;
+				background: rgba(196 ,196 ,196 , 0.5);
+			}
+
+
 			.IconMenu {
 				margin-left: 10px;
+				grid-column: 1;
+				grid-row: 1;
+				align-self: center;
+				transition: all 300ms ease;
+				z-index: 2
 			}
 
 			.Menu {
+				padding-top: 60px;
 				position: fixed;
-				top: 60px;
 				width: 0px;
+				max-width: 300px;
 				height: 100%;
 				background: #3B2E5A;
 				display: grid;
 				grid-template-rows: repeat(6, 80px);
 				transition: all 300ms;
 				overflow: hidden;
+				z-index: 2;
+				box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
 			}
 
 			.Menu div {
 				padding: 20px;
-				color: #FFFFFF;
-				font-size: 20px;
 				text-align: center;
 				display: flex;
 				align-items: center;
@@ -92,13 +153,16 @@ body {
 				grid-row: 5;
 			}
 
-			img {
-				width: 45px;
-				height: 45px;
+			.Logo {
 				grid-column: 2;
 				grid-row: 1;
 				align-self: center;
 				justify-self: end;
+			}
+
+			img {
+				width: 45px;
+				height: 45px;
 			}
 
 		.RegCliente,
@@ -128,6 +192,13 @@ body {
 				margin-bottom: 10px; 
 			}
 
+			a {
+				color: #FFFFFF;
+				font-size: 20px;
+				margin-bottom: 10px;
+				text-decoration: none;
+			}
+
 			input,
 			select {
 				width: 250px;
@@ -149,6 +220,7 @@ body {
 				border: none;
 				color: #FFFFFF;
 				font-weight: bold;
+				background: #4EA0AE;
 			}
 
 			.RegCliente .Name {
@@ -193,13 +265,23 @@ body {
 				align-self: end;
 			}
 
-			.RegCliente .BtnAcept:hover {
+			.BtnAcept:hover {
 				background: #6CAEB9;
 			}
 
 		.Canvas .Cliente {
 			
 		}
+
+	.Fondo {
+		visibility: hidden;
+		position: fixed;
+		width: 100%;
+		max-width: 1920px;
+		height: 100%;
+		background: rgba(196 ,196 ,196 , 0.0);
+		z-index: 1;
+	}		
 
 /* ANIMACIONES */
 /* BOTON DEL MENU LATERAL*/
