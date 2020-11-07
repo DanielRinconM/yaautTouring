@@ -83,24 +83,16 @@
 			<label>
 				<input type="text" name="buscar">
 			</label>
-		</p>
+	</p>
 		<input type="submit" name="buscarButton">
     </form>
-    <?php
+<?php
 include("conexion.php");
+include("insertarCliente.php");
+include("mostrarClientes.php");
 $con = conectar();
 if(isset($_POST['submitButton'])){ //check if form was submitted
-    $nombre = $_POST['nombre'];
-    $apellidoPaterno = $_POST['apellidoPaterno'];
-    $apellidoMaterno = $_POST['apellidoMaterno'];
-    $fechaNacimiento = $_POST['fechaNacimiento'];
-    $telefono = $_POST['telefono'];
-    $correoElectronico = $_POST['correoElectronico'];
-    $estado = $_POST['estado'];
-    if($nombre AND $apellidoPaterno AND $apellidoMaterno AND $fechaNacimiento AND $telefono AND $correoElectronico AND $estado){
-        $SQL = "INSERT INTO clientes VALUES ('','$nombre','$apellidoPaterno','$apellidoMaterno','$fechaNacimiento','$telefono','$correoElectronico','$estado')";
-        consultar($con, $SQL);
-    }
+    insertarCliente($con);
 }
 ?>
     <table style='border: 1px solid black; border-collapse: collapse;'>
@@ -114,40 +106,7 @@ if(isset($_POST['submitButton'])){ //check if form was submitted
         <th style='border: 1px solid black;'>BORRAR</th>
     </tr>
 <?php
-    if(isset($_POST['buscarButton'])){ //check if form was submitted
-        $buscar = $_POST['buscar'];
-        $SQL = "SELECT * FROM clientes WHERE nombre LIKE '$buscar%' OR apellidoPaterno LIKE '$buscar%' OR apellidoMaterno LIKE '$buscar%' OR fechaNacimiento LIKE '$buscar%' OR telefono LIKE '$buscar%' OR correoElectronico LIKE '$buscar%' OR estado LIKE '$buscar%'";
-    }else{
-    $SQL = "SELECT * FROM clientes";
-    }
-    $Resultado = consultar($con, $SQL);
-    $n = mysqli_num_rows($Resultado);
-    for ($i=0; $i < $n; $i++) {
-        $cadena = "";
-        print("<tr>");
-        $Fila = mysqli_fetch_row($Resultado);
-        for ($x=1; $x < count($Fila); $x++) {
-            if($x < 4){
-                $cadena = $cadena." ".$Fila[$x];
-            }else{
-                if($x == 4){
-                    print("<td style='border: 1px solid black;'>".$cadena."</td>");
-                    $date = new DateTime($Fila[$x]);
-                    $now = new DateTime();
-                    $difference = $now->diff($date);
-                    $age = $difference->y;
-                    print("<td style='border: 1px solid black;'>".date($age)." años </td>");
-                }else{
-                    print("<td style='border: 1px solid black;'>".$Fila[$x]."</td>");
-                }
-            }
-        }
-        print("<th style='border: 1px solid black;'></th>");
-        print("<th style='border: 1px solid black;'></th>");
-        print("</tr>");
-    }	
-    print("</table>");
-    print("Número total de registros: ".$n);
+    mostrarCLientes($con);
     desconectar($con);
 ?>
 </body>
