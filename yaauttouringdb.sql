@@ -111,7 +111,7 @@ CREATE TABLE `pagos` (
 
 CREATE TABLE `transportes` (
   `idTransporte` mediumint(9) NOT NULL,
-  `nombreTranporte` varchar(40) NOT NULL,
+  `nombreTransporte` varchar(40) NOT NULL,
   `tipo` varchar(10) NOT NULL,
   `capacidad` tinyint(4) NOT NULL,
   `nombreEmpresa` varchar(40) NOT NULL,
