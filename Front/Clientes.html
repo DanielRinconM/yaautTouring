@@ -16,21 +16,21 @@
 			<!-- AQUI INICIA EL MENU LATERAL -->
 
 			<nav class="Menu">
-				<div class="Clientes">
-					<a href="">Clientes</a>
-				</div>
-				<div class="Transportes">
-					<a href="">Transportes</a>
-				</div>
-				<div class="Experiencias">
-					<a href="">Experiencias</a>
-				</div>
-				<div class="Eventos">
-					<a href="">Eventos</a>
-				</div>
-				<div class="LogOut">
-					<a href="Login.html">Cerrar Sesión</a>
-				</div>
+				<button id="Btn" class="Clientes" onclick="document.location='Clientes.html'">
+					Clientes
+				</button>
+				<button id="Btn" class="Transportes" onclick="document.location='Transportes.html'">
+					Transportes
+				</button>
+				<button id="Btn" class="Experiencias" onclick="document.location='Experiencias.html'">
+					Experiencias
+				</button>
+				<button id="Btn" class="Eventos" onclick="document.location='Eventos.html'">
+					Eventos
+				</button>
+				<button id="Btn" class="LogOut" onclick="document.location='Login.html'">
+					Cerrar Sesión
+				</button>
 			</nav>
 
 			<!-- AQUI TERMINA EL MENU LATERAL -->
@@ -38,22 +38,25 @@
 			<div class="Fondo"></div>
 			<img class="Logo" src="Resources/logo.png">
 		</div>
-		<div class="RegCliente">
-			<h1>Registro Clientes</h1>
+
+		<!-- AQUI INICIA EL FORMULARIO DE ENTRADA DE DATOS -->
+
+		<span class="RegCliente">
+			<h1>Registro de cliente</h1>
 			<div class="Name">
 				<p>Nombre:</p>
 				<input type="text" name="inputName">
 			</div>
 			<div class="FName">
-				<p>Apellido Paterno:</p>
+				<p>Apellido paterno:</p>
 				<input type="text" name="inputFName">
 			</div>
 			<div class="LName">
-				<p>Apellido Materno:</p>
+				<p>Apellido materno:</p>
 				<input type="text" name="inputLName">
 			</div>
 			<div class="Birthday">
-				<p>Fecha de Nacimiento:</p>
+				<p>Fecha de nacimiento:</p>
 				<input type="date" name="inputBirth">
 			</div>
 			<div class="Phone">
@@ -61,7 +64,7 @@
 				<input type="text" name="inputPhone">
 			</div>
 			<div class="Email">
-				<p>Correo Electrónico:</p>
+				<p>Correo electrónico:</p>
 				<input type="text" name="inputEmail">
 			</div>
 			<div class="Location">
@@ -103,10 +106,13 @@
 				</select>
 			</div>
 			<button class="BtnAcept">Aceptar</button>
-		</div>
-		<div class="Cliente">
+		</span>
+
+		<!-- AQUI TERMINA EL FORMULARIO DE ENTRADA DE DATOS -->
+
+		<span class="Cliente">
 			<h1>Clientes</h1>
-		</div>
+		</span>
 	</div>
 </body>
 </html>

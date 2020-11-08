@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>YaautTouring</title>
+	<link href="Estilos.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="Canvas">
+		<div class="Header">
+			<input type="checkbox" id="Check">
+			<label for="Check" class="IconMenu"><img class="MenuImg" src="Resources/Menu.png"></label>
+
+			<!-- AQUI INICIA EL MENU LATERAL -->
+
+			<nav class="Menu">
+				<button id="Btn" class="Clientes" onclick="document.location='Clientes.html'">
+					Clientes
+				</button>
+				<button id="Btn" class="Transportes" onclick="document.location='Transportes.html'">
+					Transportes
+				</button>
+				<button id="Btn" class="Experiencias" onclick="document.location='Experiencias.html'">
+					Experiencias
+				</button>
+				<button id="Btn" class="Eventos" onclick="document.location='Eventos.html'">
+					Eventos
+				</button>
+				<button id="Btn" class="LogOut" onclick="document.location='Login.html'">
+					Cerrar Sesión
+				</button>
+			</nav>
+
+			<!-- AQUI TERMINA EL MENU LATERAL -->
+
+			<div class="Fondo"></div>
+			<img class="Logo" src="Resources/logo.png">
+		</div>
+
+		<!-- AQUI INICIA EL FORMULARIO DE ENTRADA DE DATOS -->
+
+		<span class="RegExperiencia">
+			<h1>Registro de experiencia</h1>
+			<div class="Event">
+				<p>Evento:</p>
+				<select name="inputEvent">
+					<option>Seleccione una opción</option>
+				</select>
+			</div>
+			<div class="Client">
+				<p>Cliente:</p>
+				<select name="inputClient">
+					<option>Seleccione una opción</option>
+				</select>
+			</div>
+			<div class="Discount">
+				<p>Descuento (%):</p>
+				<input type="text" name="inputDiscount">
+			</div>
+			<div class="Fase">
+				<p>Fase:</p>
+				<select name="inputFase">
+					<option>Seleccione una opción</option>
+				</select>
+			</div>
+			<div class="DateEnd">
+				<p>Fecha límite de pago:</p>
+				<input type="date" name="inputEnd">
+			</div>
+			<button class="BtnAcept">Aceptar</button>
+		</span>
+
+		<!-- AQUI TERMINA EL FORMULARIO DE ENTRADA DE DATOS -->
+
+		<span class="Experiencia">
+			<h1>Experiencias</h1>
+		</span>
+	</div>
+</body>
+</html>

@@ -120,19 +120,6 @@ body {
 				box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
 			}
 
-			.Menu div {
-				padding: 20px;
-				text-align: center;
-				display: flex;
-				align-items: center;
-				transition: all 400ms ease;
-				width: 300px;
-			}
-
-			.Menu div:hover {
-				background: #5C5174;
-			}
-
 			.Clientes {
 				grid-row: 1;
 			}
@@ -165,17 +152,13 @@ body {
 				height: 45px;
 			}
 
-		.RegCliente,
-		.Cliente {
+		span {
 			margin-right: 40px;
 			margin-left: 40px;
 			padding: 20px;
 			background: #FFFFFF;
 			color: #000000;
 			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
-		}
-
-		.RegCliente {
 			display: grid;
 			grid-gap: 20px;
 			grid-template-columns: repeat(5, auto);
@@ -192,13 +175,6 @@ body {
 				margin-bottom: 10px; 
 			}
 
-			a {
-				color: #FFFFFF;
-				font-size: 20px;
-				margin-bottom: 10px;
-				text-decoration: none;
-			}
-
 			input,
 			select {
 				width: 250px;
@@ -212,12 +188,30 @@ body {
 			}
 
 			button {
+				outline: none;
+				border: none;
+				cursor: pointer;
+			}
+
+			#Btn {
+				color: #FFFFFF;
+				font-size: 20px;
+				text-align: left;
+				padding: 20px;
+				border-radius: 0;
+				background: #3B2E5A;
+				width: 300px;
+			}
+
+			#Btn:hover {
+				background: #5C5174;
+			}
+
+			.BtnAcept {
 				width: 150px;
 				height: 30px;
 				font-size: 16px;
 				border-radius: 10px;
-				outline: none;
-				border: none;
 				color: #FFFFFF;
 				font-weight: bold;
 				background: #4EA0AE;
@@ -265,10 +259,6 @@ body {
 				align-self: end;
 			}
 
-			.BtnAcept:hover {
-				background: #6CAEB9;
-			}
-
 		.Canvas .Cliente {
 			
 		}
@@ -281,7 +271,147 @@ body {
 		height: 100%;
 		background: rgba(196 ,196 ,196 , 0.0);
 		z-index: 1;
-	}		
+		transition: all 300ms;
+	}
+
+/* ESTILOS DE PAGINA TRANSPORTES */
+
+			.RegTransporte .Name {
+				grid-column: 1;
+				grid-row: 2;
+			}
+
+			.RegTransporte .Capacity {
+				grid-column: 2;
+				grid-row: 2;
+			}
+
+			.RegTransporte .Type {
+				grid-column: 3;
+				grid-row: 2;
+			}
+
+			.RegTransporte .Cost {
+				grid-column: 4;
+				grid-row: 2;
+			}
+
+			.RegTransporte .Enterprise {
+				grid-column: 1;
+				grid-row: 3;
+			}
+
+			.RegTransporte .DateStart {
+				grid-column: 2;
+				grid-row: 3;
+			}
+
+			.RegTransporte .DateEnd {
+				grid-column: 3;
+				grid-row: 3;
+			}
+
+			.RegTransporte .BtnAcept {
+				background: #4EA0AE;
+				grid-column: 5;
+				grid-row: 3;
+				align-self: end;
+			}
+
+			.BtnAcept:hover {
+				background: #6CAEB9;
+			}
+
+/* ESTILOS DE PAGINA EXPERIENCIAS */
+
+			.RegExperiencia .Event {
+				grid-column: 1;
+				grid-row: 2;
+			}
+
+			.RegExperiencia .Client {
+				grid-column: 2;
+				grid-row: 2;
+			}
+
+			.RegExperiencia .Discount {
+				grid-column: 3;
+				grid-row: 2;
+			}
+
+			.RegExperiencia .Fase {
+				grid-column: 1;
+				grid-row: 3;
+			}
+
+			.RegExperiencia .DateStart {
+				grid-column: 2;
+				grid-row: 3;
+			}
+
+			.RegExperiencia .BtnAcept {
+				background: #4EA0AE;
+				grid-column: 5;
+				grid-row: 3;
+				align-self: end;
+			}
+
+			.BtnAcept:hover {
+				background: #6CAEB9;
+			}
+
+/* ESTILOS DE PAGINA EVENTOS */
+
+			.RegEvento .Name {
+				grid-column: 1;
+				grid-row: 2;
+			}
+
+			.RegEvento .DateStart {
+				grid-column: 2;
+				grid-row: 2;
+			}
+
+			.RegEvento .TimeStart {
+				grid-column: 3;
+				grid-row: 2;
+			}
+
+			.RegEvento .Place {
+				grid-column: 4;
+				grid-row: 2;
+			}
+
+			.RegEvento .Banner {
+				grid-column: 5;
+				grid-row: 2;
+			}
+
+			.RegEvento .Type {
+				grid-column: 1;
+				grid-row: 3;
+			}
+
+			.RegEvento .DateEnd {
+				grid-column: 2;
+				grid-row: 3;
+			}
+
+			.RegEvento .TimeEnd {
+				grid-column: 3;
+				grid-row: 3;
+			}
+
+			.RegEvento .BtnAcept {
+				background: #4EA0AE;
+				grid-column: 5;
+				grid-row: 3;
+				align-self: end;
+			}
+
+			.BtnAcept:hover {
+				background: #6CAEB9;
+			}
 
 /* ANIMACIONES */
 /* BOTON DEL MENU LATERAL*/
