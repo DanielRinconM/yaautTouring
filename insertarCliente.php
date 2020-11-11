@@ -21,7 +21,7 @@ function insertarCliente($con){
                 print("<h4>El teléfono que ingresaste ya existe</h4>");
             }else{
         $SQL = "INSERT INTO clientes(nombre,apellidoPaterno,apellidoMaterno,fechaNacimiento,telefono,correoElectronico,estado) VALUES ('$nombre','$apellidoPaterno','$apellidoMaterno','$fechaNacimiento','$telefono','$correoElectronico','$estado')";
-        consultar($con, $SQL);
+            consultar($con, $SQL);
             }
         }
     }
