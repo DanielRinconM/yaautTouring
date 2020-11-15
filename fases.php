@@ -13,7 +13,8 @@ $con = conectar();
 				Evento:
 				<select name="evento">
 				<?php
-				$sql = mysqli_query($con, "SELECT nombreEvento FROM eventos");
+				$now = date('Y-m-d');
+				$sql = mysqli_query($con, "SELECT nombreEvento FROM eventos WHERE fechaInicio > '$now'");
 				while ($row = $sql->fetch_assoc()){
 				echo "<option value=\"".$row['nombreEvento']."\">" . $row['nombreEvento'] ."</option>";
 				}
@@ -47,6 +48,20 @@ include("insertarFase.php");
 if(isset($_POST['submitButton'])){ //check if form was submitted
     insertarFase($con);
 }
+include("mostrarFases.php");
+?>
+    <table style='border: 1px solid black; border-collapse: collapse;'>
+    <tr>
+        <th style='border: 1px solid black;'>NOMBRE</th>
+        <th style='border: 1px solid black;'>PRECIO</th>
+        <th style='border: 1px solid black;'>FECHA FINAL</th>
+        <th style='border: 1px solid black;'>EVENTO</th>
+		<th style='border: 1px solid black;'>EDITAR</th>
+        <th style='border: 1px solid black;'>ELIMINAR</th>
+    </tr>
+<?php
+    mostrarFases($con);
+    desconectar($con);
 ?>
 </body>
 </html>

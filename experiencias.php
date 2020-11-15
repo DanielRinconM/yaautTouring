@@ -1,4 +1,8 @@
+<!DOCTYPE html>
 <html>
+<head>
+<script defer type="text/javascript" src="funciones.js"></script>
+</head>
 <body>    
 <?php
 include("conexion.php");
@@ -11,11 +15,12 @@ $con = conectar();
 
 			<label>
 				Evento:
-				<select name="idEvento">
+				<select name="idEvento" id="idEvento">
 				<?php
-				$sql = mysqli_query($con, "SELECT nombreEvento, idEvento FROM eventos");
+				$now = date('Y-m-d');
+				$sql = mysqli_query($con, "SELECT nombreEvento, idEvento FROM eventos WHERE fechaInicio > '$now'");
 				while ($row = $sql->fetch_assoc()){
-				echo "<option value=\"".$row['idEvento']."\">" . $row['nombreEvento'] ."</option>";
+				echo "<option value=\"".$row['idEvento']."\">" . $row['nombreEvento']."</option>";
 				}
 			?>
 			</select>
@@ -28,30 +33,16 @@ $con = conectar();
 				<?php 
 				$sql = mysqli_query($con, "SELECT nombre, apellidoPaterno, idCliente FROM clientes");
 				while ($row = $sql->fetch_assoc()){
-				echo "<option value=\"".$row['idCliente']."\">" . $row['nombre'] ." ".$row['apellidoPaterno']."</option>";
+					echo "<option value=\"".$row['idCliente']."\">" . $row['nombre'] ." ".$row['apellidoPaterno']."</option>";
 				}
 			?>
 			</select>
 			</label>
 		</p>
 		<p>
-
-			<label>
-				Fase:
-				<select name="idFase">
-				<?php
-				$sql = mysqli_query($con, "SELECT nombre, idEvento, idFase FROM fases");
-				while ($row = $sql->fetch_assoc()){
-				echo "<option value=\"".$row['idFase']."\">" . $row['nombre'] ."-".$row['idEvento']."</option>";
-				}
-				?>
-			</select>
-			</label>
-		</p>
-		<p>
 			<label>
 				Descuento:
-				<input type="text" name="descuento"maxlength=40  required>
+				<input type="number" name="descuento" min="0" max="100" value=0>
 			</label>
 		</p>
 		<input type="submit" name="submitButton">
