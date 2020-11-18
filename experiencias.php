@@ -3,7 +3,7 @@
 <head>
 <script defer type="text/javascript" src="funciones.js"></script>
 </head>
-<body>    
+<body>
 <?php
 include("conexion.php");
 $con = conectar();
@@ -30,7 +30,7 @@ $con = conectar();
 			<label>
 				Cliente:
 				<select name="idCliente">
-				<?php 
+				<?php
 				$sql = mysqli_query($con, "SELECT nombre, apellidoPaterno, idCliente FROM clientes");
 				while ($row = $sql->fetch_assoc()){
 					echo "<option value=\"".$row['idCliente']."\">" . $row['nombre'] ." ".$row['apellidoPaterno']."</option>";
@@ -48,12 +48,35 @@ $con = conectar();
 		<input type="submit" name="submitButton">
 		</p>
     </form>
-<?php
-include("insertarExperiencia.php");
-if(isset($_POST['submitButton'])){ //check if form was submitted
-    insertarExperiencia($con);
-}
-?>
+		<form id="buscarExperiencia" name="buscarExperiencia" method="post" action="">
+    <p>
+			<label>
+				<input type="text" name="buscar">
+			</label>
+	</p>
+		<input type="submit" name="buscarButton">
+    </form>
+		<?php
+		include("insertarExperiencia.php");
+		include("mostrarExperiencia.php");
+		if(isset($_POST['submitButton'])){ //check if form was submitted
+		    insertarExperiencia($con);
+		}
+		?>
+		    <table style='border: 1px solid black; border-collapse: collapse;'>
+		    <tr>
+		        <th style='border: 1px solid black;'>DESCUENTO</th>
+		        <th style='border: 1px solid black;'>PAGADO</th>
+						<th style='border: 1px solid black;'>EVENTO</th>
+		        <th style='border: 1px solid black;'>FASE</th>
+		        <th style='border: 1px solid black;'>CLIENTE</th>
+						<th style='border: 1px solid black;'>EDITAR</th>
+		        <th style='border: 1px solid black;'>ELIMINAR</th>
+		    </tr>
+		<?php
+		    mostrarExperiencia($con);
+		    desconectar($con);
+		?>
 
 </body>
 </html>
