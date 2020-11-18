@@ -6,15 +6,13 @@ function insertarFase($con){
 	$fechaFinal = $_POST['fechaFinal'];
 	if($evento AND $fechaFinal){
 		// Consultando ID de nombre de evento seleccionado	
-		$SQL = "SELECT idEvento FROM eventos WHERE nombreEvento='$evento'";
+		$SQL = "SELECT idEvento, fechaInicio FROM eventos WHERE nombreEvento='$evento'";
 		$resultado = consultar($con, $SQL);
-		$Fila = mysqli_fetch_row($resultado);
-		$idEvento = $Fila[0];
-		$SQLExcedente = "SELECT fechaInicio FROM eventos WHERE idEvento = '$idEvento'";
-		$ResultadoExcedente = consultar($con, $SQLExcedente);
-		$rowExcedente = $ResultadoExcedente->fetch_assoc();
-		if($rowExcedente['fechaInicio']< $fechaFinal){
-            echo("El evento tiene una fecha de inicio anterior a la fecha final de la fase que intentas registrar");
+		$Fila = $resultado->fetch_assoc();
+		$idEvento = $Fila['idEvento'];
+		$fechaInicio = $Fila['fechaInicio']
+		if($fechaInicio< $fechaFinal){
+            echo("El evento ($evento) tiene una fecha de inicio ($fechaInicio) anterior a la fecha final ($fechaFinal) de la fase que intentas registrar");
         }else{
 			$SQLRepetido = "SELECT fechaFinal FROM fases WHERE idEvento='$idEvento'";
 			$ResultadoRepeticion = consultar($con, $SQLRepetido);
@@ -24,7 +22,7 @@ function insertarFase($con){
 				$fechaIgual = $fechaIgual +1;
 			}
 			if($fechaIgual>0){
-				echo("Ya existe una fase con esta fecha final en este evento");
+				echo("Ya existe una fase con esta fecha final ($fechaFinal) en este evento");
 			}else{
 			if($nombreFase AND $precio){
 				$SQL = "INSERT INTO fases(nombre, precio, fechaFinal, idEvento) VALUES ('$nombreFase','$precio','$fechaFinal','$idEvento')";

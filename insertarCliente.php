@@ -12,13 +12,13 @@ function insertarCliente($con){
         $resultadoCorreo = consultar($con,$SQLcorreo);
         $nCorreo = mysqli_num_rows($resultadoCorreo);
         if($nCorreo > 0){
-            print("<h4>El correo que ingresaste ya existe</h4>");
+            print("<h4>El correo ($correoElectronico) que ingresaste ya existe</h4>");
         }else{
             $SQLtelefono = "SELECT * FROM clientes WHERE telefono = '$telefono'";
             $resultadoTelefono = consultar($con,$SQLtelefono);
             $nTelefono = mysqli_num_rows($resultadoTelefono);
             if($nTelefono > 0){
-                print("<h4>El teléfono que ingresaste ya existe</h4>");
+                print("<h4>El teléfono }($telefono) que ingresaste ya existe</h4>");
             }else{
         $SQL = "INSERT INTO clientes(nombre,apellidoPaterno,apellidoMaterno,fechaNacimiento,telefono,correoElectronico,estado) VALUES ('$nombre','$apellidoPaterno','$apellidoMaterno','$fechaNacimiento','$telefono','$correoElectronico','$estado')";
             consultar($con, $SQL);
