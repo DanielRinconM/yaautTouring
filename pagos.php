@@ -1,5 +1,5 @@
 <html>
-<body>    
+<body>
 <?php
 include("conexion.php");
 $con = conectar();
@@ -43,11 +43,34 @@ $con = conectar();
 		<input type="submit" name="submitButton">
 		</p>
     </form>
-<?php
-include("insertarPago.php");
-if(isset($_POST['submitButton'])){ //check if form was submitted
-    insertarPago($con);
-}
-?>
+	</form>
+	<form id="buscarExperiencia" name="buscarExperiencia" method="post" action="">
+				<p>
+					<label>
+						<input type="text" name="buscar">
+					</label>
+				</p>
+				<input type="submit" name="buscarButton">
+	</form>
+	<?php
+	include("insertarPago.php");
+	include("mostrarPago.php");
+	if(isset($_POST['submitButton'])){ //check if form was submitted
+			insertarExperiencia($con);
+	}
+	?>
+			<table style='border: 1px solid black; border-collapse: collapse;'>
+			<tr>
+					<th style='border: 1px solid black;'>MONTO</th>
+					<th style='border: 1px solid black;'>METODO</th>
+					<th style='border: 1px solid black;'>FECHA</th>
+					<th style='border: 1px solid black;'>EXPERIENCIA</th>
+					<th style='border: 1px solid black;'>EDITAR</th>
+					<th style='border: 1px solid black;'>ELIMINAR</th>
+			</tr>
+	<?php
+			mostrarPago($con);
+			desconectar($con);
+	?>
 </body>
 </html>
