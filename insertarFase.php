@@ -10,7 +10,7 @@ function insertarFase($con){
 		$resultado = consultar($con, $SQL);
 		$Fila = $resultado->fetch_assoc();
 		$idEvento = $Fila['idEvento'];
-		$fechaInicio = $Fila['fechaInicio']
+		$fechaInicio = $Fila['fechaInicio'];
 		if($fechaInicio< $fechaFinal){
             echo("El evento ($evento) tiene una fecha de inicio ($fechaInicio) anterior a la fecha final ($fechaFinal) de la fase que intentas registrar");
         }else{
