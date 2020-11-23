@@ -54,6 +54,11 @@ if(isset($_POST['submitButton'])){ //check if form was submitted
     insertarExperiencia($con);
 }
 ?>
+<?php
+include("mostrarExperiencias.php");
+mostrarExperiencias($con);
+desconectar($con);
+?>
 
 </body>
 </html>
