@@ -13,6 +13,8 @@
 			<th style='border:1px solid black'> Monto </th style='border:1px solid black'>
 			<th style='border:1px solid black'> Método </th style='border:1px solid black'>
 			<th style='border:1px solid black'> Fecha </th style='border:1px solid black'>
+			<th style='border: 1px solid black;'></th>
+        	<th style='border: 1px solid black;'><a href=EliminarTransporte.php?Id=$Fila[0]>Eliminar</th>
 		</tr>";
 
 	while ($row = mysqli_fetch_array($resultado))

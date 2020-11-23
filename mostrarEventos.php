@@ -4,7 +4,7 @@ function mostrarEventos($con){
         $buscar = $_POST['buscar'];
         $SQL = "SELECT  `nombreEvento`, `fechaInicio`, `horaInicio`, `fechaFinal`, `horaFinal`, `lugar`, `status`  FROM eventos WHERE nombreEvento LIKE '$buscar%' OR lugar LIKE '$buscar%' OR status LIKE '$buscar%' ORDER BY nombreEvento, lugar, status";
     }else{
-    $SQL = "SELECT nombreEvento, fechaInicio, horaInicio, fechaFinal, horaFinal, lugar, status FROM eventos";
+    $SQL = "SELECT nombreEvento, fechaInicio, horaInicio, fechaFinal, horaFinal, lugar, status, idEvento FROM eventos";
     }
     $Resultado = consultar($con, $SQL);
     $n = mysqli_num_rows($Resultado);
@@ -24,13 +24,16 @@ function mostrarEventos($con){
                                     print("<td style='border: 1px solid black;'>".$Fila[$x]." at ".$Fila[$x+1]."</td>");
                 		    $x=$x+1;
                                 }
+                        else if($x==7){
+
+                        }
                 		else
                 		{
                                     print("<td style='border: 1px solid black;'>".$Fila[$x]."</td>");
                 		}
         }
         print("<th style='border: 1px solid black;'></th>");
-        print("<th style='border: 1px solid black;'></th>");
+        print("<th style='border: 1px solid black;'><a href=EliminarEvento.php?Id=$Fila[7]>Eliminar</th>");
         print("</tr>");
     }
     print("</table>");
