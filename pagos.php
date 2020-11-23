@@ -13,9 +13,31 @@ $con = conectar();
 				Experiencia:
 				<select name="idExperiencia">
 				<?php
-				$sql = mysqli_query($con, "SELECT idExperiencia, idCliente FROM experiencias");
-				while ($row = $sql->fetch_assoc()){
-				echo "<option value=\"".$row['idExperiencia']."\">" . $row['idCliente'] ."</option>";
+				$sql = "SELECT experiencias.idExperiencia, experiencias.idCliente, experiencias.pagado, experiencias.descuento,
+					clientes.nombre as nombreCliente, clientes.apellidoPaterno,
+					eventos.nombreEvento,
+					fases.nombre as nombreFase, fases.precio
+					FROM experiencias
+					INNER JOIN clientes ON experiencias.idCliente=clientes.idCliente 
+					INNER JOIN eventos ON experiencias.idEvento=eventos.idEvento 
+					INNER JOIN fases ON experiencias.idFase=fases.idFase;";
+
+				$resultado = mysqli_query($con,$sql);
+				//$sql = mysqli_query($con, "SELECT idExperiencia, idCliente FROM experiencias");
+				while ($row = mysqli_fetch_array($resultado))
+				{
+					//echo "<option value=\"".$row['idExperiencia']."\">" . $row['idCliente'] ."</option>";
+
+					$descuento = ($row['precio']*$row['descuento'])/100;
+					$precioConDescuento =$row['precio'] - $descuento; 
+					$debe = $precioConDescuento - $row['pagado'];
+					if($debe > 0)
+					{
+						echo "<option value=\"".$row["idExperiencia"]."\">" 
+						. $row['nombreEvento']." - ".$row['nombreFase']
+						." | ".$row['nombreCliente']." ".$row['apellidoPaterno']
+						." | $".$debe."</option>";
+					}
 				}
 			?>
 			</select>
@@ -48,6 +70,7 @@ include("insertarPago.php");
 if(isset($_POST['submitButton'])){ //check if form was submitted
     insertarPago($con);
 }
+
 ?>
 </body>
 </html>
