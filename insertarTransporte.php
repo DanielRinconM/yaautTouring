@@ -8,8 +8,9 @@ function insertarTransporte($con){
     $fin = $_POST['finPrestamo'];
     $costo = $_POST['costo'];
     if($nombre AND $tipo AND $capacidad AND $empresa AND $inicio AND $fin AND $costo){
-        $SQL = "INSERT INTO transportes VALUES ('','$nombre','$tipo','$capacidad','$empresa','$inicio','$fin','$costo')";
+        $SQL = "INSERT INTO transportes(nombreTransporte,tipo,capacidad,nombreEmpresa,inicioPrestamo,finPrestamo,costo) VALUES ('$nombre','$tipo','$capacidad','$empresa','$inicio','$fin','$costo')";
         consultar($con, $SQL);
+	header('Location: transportes.php');
     }
 }
 ?>

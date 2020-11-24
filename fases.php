@@ -56,7 +56,6 @@ include("mostrarFases.php");
         <th style='border: 1px solid black;'>PRECIO</th>
         <th style='border: 1px solid black;'>FECHA FINAL</th>
         <th style='border: 1px solid black;'>EVENTO</th>
-		<th style='border: 1px solid black;'>EDITAR</th>
         <th style='border: 1px solid black;'>ELIMINAR</th>
     </tr>
 <?php

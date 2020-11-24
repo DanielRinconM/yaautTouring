@@ -73,6 +73,7 @@
 include("conexion.php");
 include("insertarEvento.php");
 include("mostrarEventos.php");
+include("actualizarEventos.php");
 $con = conectar();
 if(isset($_POST['submitButton'])){ //check if form was submitted
     insertarEvento($con);
@@ -86,10 +87,11 @@ if(isset($_POST['submitButton'])){ //check if form was submitted
         <th style='border: 1px solid black;'>FECHA FINAL</th>
         <th style='border: 1px solid black;'>LUGAR</th>
         <th style='border: 1px solid black;'>STATUS</th>
-        <th style='border: 1px solid black;'>EDITAR</th>
         <th style='border: 1px solid black;'>BORRAR</th>
     </tr>
 <?php
+//para actualizar status de eventos
+actualizarEventos($con);
 mostrarEventos($con);
 desconectar($con);
 ?>

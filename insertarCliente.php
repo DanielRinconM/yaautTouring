@@ -22,6 +22,7 @@ function insertarCliente($con){
             }else{
         $SQL = "INSERT INTO clientes(nombre,apellidoPaterno,apellidoMaterno,fechaNacimiento,telefono,correoElectronico,estado) VALUES ('$nombre','$apellidoPaterno','$apellidoMaterno','$fechaNacimiento','$telefono','$correoElectronico','$estado')";
             consultar($con, $SQL);
+	    header('Location: clientes.php');
             }
         }
     }

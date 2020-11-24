@@ -23,7 +23,6 @@ function mostrarFases($con){
                     print("<td style='border: 1px solid black;'>".$Fila[$x]."</td>");
                 }
         }
-        print("<th style='border: 1px solid black;'></th>");
         print("<th style='border: 1px solid black;'><a href=EliminarFase.php?Id=$Fila[0]>Eliminar</th>");
         print("</tr>");
     }	

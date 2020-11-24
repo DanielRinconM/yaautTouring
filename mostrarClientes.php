@@ -28,7 +28,6 @@ function mostrarClientes($con){
                 }
             }
         }
-        print("<th style='border: 1px solid black;'></th>");
         print("<th style='border: 1px solid black;'><a href=EliminarCliente.php?Id=$Fila[0]>Eliminar</th>");
         print("</tr>");
     }	

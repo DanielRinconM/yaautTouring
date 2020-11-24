@@ -22,11 +22,16 @@ function insertarExperiencia($con){
             $Resultado = consultar($con, $SQLFase);
             $Fila = mysqli_fetch_row($Resultado);
             $idFase = $Fila[0];
+	    echo $idFase;
             if($idFase){
                 $SQL = "INSERT INTO experiencias(descuento, pagado, idEvento, idFase, idCliente) VALUES ('$descuento','0','$idEvento','$idFase','$idCliente')";
                 echo $SQL;
                 consultar($con, $SQL);
+		header('Location: experiencias.php');
                 }   
+	    else{
+		    echo "Este evento no tiene fases registradas";
+	    	}
             }
         }
     }  

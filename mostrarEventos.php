@@ -11,7 +11,7 @@ function mostrarEventos($con){
     for ($i=0; $i < $n; $i++) {
         print("<tr>");
         $Fila = mysqli_fetch_row($Resultado);
-        for ($x=0; $x < count($Fila); $x++) 
+        for ($x=0; $x < count($Fila)-1; $x++) 
 	{
 		if($x==1)
 		{
@@ -30,7 +30,6 @@ function mostrarEventos($con){
                     print("<td style='border: 1px solid black;'>".$Fila[$x]."</td>");
 		}
         }
-        print("<th style='border: 1px solid black;'></th>");
         print("<th style='border: 1px solid black;'><a href=EliminarEvento.php?Id=$Fila[7]>Eliminar</th>");
         print("</tr>");
     }

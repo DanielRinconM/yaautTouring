@@ -34,8 +34,7 @@ function mostrarExperiencias($con){
 			<th style='border:1px solid black'> Pagado </th style='border:1px solid black'>
 			<th style='border:1px solid black'> Pendiente </th style='border:1px solid black'>
 			<th style='border:1px solid black'> Ver pagos </th style='border:1px solid black'>
-			<th style='border:1px solid black'> Editar </th style='border:1px solid black'>
-			<th style='border:1px solid black'> Borrar </th style='border:1px solid black'>
+			<th style='border:1px solid black'> Eliminar </th style='border:1px solid black'>
 		</tr>";
 
 	while ($row = mysqli_fetch_array($resultado))
@@ -50,9 +49,8 @@ function mostrarExperiencias($con){
 		<td style='border:1px solid black'>".$row['nombreFase']."</td style='border:1px solid black'>
 		<td style='border:1px solid black'>".$row['pagado']."</td style='border:1px solid black'>
 		<td style='border:1px solid black'>".$debe."</td style='border:1px solid black'>
-		<td style='border:1px solid black'>Ver Pagos</td style='border:1px solid black'>
-		<td style='border:1px solid black'>Editar</td style='border:1px solid black'>
-		<td style='border:1px solid black'>Borrar</td style='border:1px solid black'>
+		<td style='border:1px solid black'><a href=verPagos.php?idExperiencia=".$row['idExperiencia'].">Ver Pagos</td style='border:1px solid black'>
+		<td style='border:1px solid black'><a href=EliminarExperiencia.php?Id=".$row['idExperiencia'].">Eliminar</td style='border:1px solid black'>
 		</tr>";
 	}
 	echo "</table>";

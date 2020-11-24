@@ -105,6 +105,7 @@ if($nombreEvento AND $fechaInicio AND $fechaFinal AND $horaInicio AND $horaFinal
 	{
  $SQL = "INSERT INTO eventos(nombreEvento,fechaInicio,fechaFinal,horaInicio,horaFinal,lugar,status,tipo,banner,fechaUltimoPago) VALUES ('$nombreEvento','$fechaInicio','$fechaFinal','$horaInicio','$horaFinal','$lugar','Proximo','$tipo','$banner','$fechaUltimoPago')";
 consultar($con, $SQL);
+header('Location: eventos.php');
     	}
 	else
 	{

@@ -71,7 +71,6 @@ if(isset($_POST['submitButton'])){ //check if form was submitted
         <th style='border: 1px solid black;'>INICIO PRÉSTAMO</th>
         <th style='border: 1px solid black;'>FIN PRÉSTAMO</th>
         <th style='border: 1px solid black;'>COSTO</th>
-        <th style='border: 1px solid black;'>EDITAR</th>
         <th style='border: 1px solid black;'>ELIMINAR</th>
     </tr>
 <?php

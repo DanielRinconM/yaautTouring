@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 11, 2020 at 07:34 PM
+-- Generation Time: Nov 24, 2020 at 10:30 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `yaauttouringdb`
+-- Database: `yaauttouringdb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `clientes`
+-- Table structure for table `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -39,10 +38,18 @@ CREATE TABLE `clientes` (
   `estado` varchar(21) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `clientes`
+--
+
+INSERT INTO `clientes` (`idCliente`, `nombre`, `apellidoPaterno`, `apellidoMaterno`, `fechaNacimiento`, `telefono`, `correoElectronico`, `estado`) VALUES
+(131, 'Juan', 'Camarena', 'Gonzalez', '1971-10-11', '4424785896', 'juan.camarena@gmail.com', 'Aguascalientes'),
+(132, 'test', 'test', 'test', '2020-12-02', '4424785897', 'emilio@test.com', 'Aguascalientes');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `eventos`
+-- Table structure for table `eventos`
 --
 
 CREATE TABLE `eventos` (
@@ -59,10 +66,21 @@ CREATE TABLE `eventos` (
   `fechaUltimoPago` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `eventos`
+--
+
+INSERT INTO `eventos` (`idEvento`, `nombreEvento`, `fechaInicio`, `horaInicio`, `fechaFinal`, `horaFinal`, `lugar`, `tipo`, `banner`, `status`, `fechaUltimoPago`) VALUES
+(4, 'Van Helen', '2020-12-01', '19:00:00', '2020-12-01', '23:00:00', 'Foro Sol', 'Pueblo Magico', '-', 'Proximo', '2020-12-12'),
+(5, 'Concierto Viejo', '2020-11-23', '11:11:00', '2020-11-23', '00:13:00', 'Viejo', 'Pueblo Magico', '-', 'Finalizado', '2020-11-23'),
+(6, 'Prueba2', '2020-11-01', '11:11:00', '2020-11-08', '02:03:00', '1', 'Pueblo Magico', '-', 'Finalizado', '2020-10-05'),
+(7, 'Proximo', '2020-11-23', '11:00:00', '2020-11-23', '23:50:00', 'Test', 'Pueblo Magico', '-', 'Finalizado', '2020-11-10'),
+(8, 'Actual', '2020-11-24', '11:00:00', '2020-11-24', '23:00:00', 'Test', 'Pueblo Magico', '-', 'Transcurriendo', '2020-11-16');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `experiencias`
+-- Table structure for table `experiencias`
 --
 
 CREATE TABLE `experiencias` (
@@ -74,25 +92,38 @@ CREATE TABLE `experiencias` (
   `idCliente` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `experiencias`
+--
+
+INSERT INTO `experiencias` (`idExperiencia`, `descuento`, `pagado`, `idEvento`, `idFase`, `idCliente`) VALUES
+(5, 0, 400, 4, 17, 131);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `fases`
+-- Table structure for table `fases`
 --
 
 CREATE TABLE `fases` (
   `idFase` mediumint(9) NOT NULL,
-  `numeroFase` char(1) NOT NULL,
   `nombre` varchar(40) NOT NULL,
   `precio` float NOT NULL,
   `fechaFinal` date NOT NULL,
   `idEvento` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `fases`
+--
+
+INSERT INTO `fases` (`idFase`, `nombre`, `precio`, `fechaFinal`, `idEvento`) VALUES
+(17, 'Bronce', 5000, '2020-11-30', 4);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pagos`
+-- Table structure for table `pagos`
 --
 
 CREATE TABLE `pagos` (
@@ -102,6 +133,14 @@ CREATE TABLE `pagos` (
   `fechaPago` date NOT NULL,
   `idExperiencia` mediumint(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pagos`
+--
+
+INSERT INTO `pagos` (`idPago`, `monto`, `metodo`, `fechaPago`, `idExperiencia`) VALUES
+(3, 500, 'credito', '2020-11-24', 4),
+(4, 400, 'credito', '2020-11-24', 5);
 
 -- --------------------------------------------------------
 
@@ -141,23 +180,30 @@ CREATE TABLE `transportes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Índices para tablas volcadas
+-- Dumping data for table `transportes`
+--
+
+INSERT INTO `transportes` (`idTransporte`, `nombreTransporte`, `tipo`, `capacidad`, `nombreEmpresa`, `inicioPrestamo`, `finPrestamo`, `costo`) VALUES
+(3, 'Camion2', 'Camion', 40, 'ETN', '2020-11-30', '2020-12-01', 5000);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `clientes`
+-- Indexes for table `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`idCliente`);
 
 --
--- Indices de la tabla `eventos`
+-- Indexes for table `eventos`
 --
 ALTER TABLE `eventos`
   ADD PRIMARY KEY (`idEvento`);
 
 --
--- Indices de la tabla `experiencias`
+-- Indexes for table `experiencias`
 --
 ALTER TABLE `experiencias`
   ADD PRIMARY KEY (`idExperiencia`),
@@ -166,94 +212,64 @@ ALTER TABLE `experiencias`
   ADD KEY `idCliente` (`idCliente`);
 
 --
--- Indices de la tabla `fases`
+-- Indexes for table `fases`
 --
 ALTER TABLE `fases`
   ADD PRIMARY KEY (`idFase`),
   ADD KEY `idEvento` (`idEvento`);
 
 --
--- Indices de la tabla `pagos`
+-- Indexes for table `pagos`
 --
 ALTER TABLE `pagos`
   ADD PRIMARY KEY (`idPago`),
   ADD KEY `idExperiencia` (`idExperiencia`);
 
 --
--- Indices de la tabla `transportes`
+-- Indexes for table `transportes`
 --
 ALTER TABLE `transportes`
   ADD PRIMARY KEY (`idTransporte`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `clientes`
+-- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idCliente` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `idCliente` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
--- AUTO_INCREMENT de la tabla `eventos`
+-- AUTO_INCREMENT for table `eventos`
 --
 ALTER TABLE `eventos`
-  MODIFY `idEvento` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idEvento` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de la tabla `experiencias`
+-- AUTO_INCREMENT for table `experiencias`
 --
 ALTER TABLE `experiencias`
-  MODIFY `idExperiencia` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idExperiencia` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `fases`
+-- AUTO_INCREMENT for table `fases`
 --
 ALTER TABLE `fases`
-  MODIFY `idFase` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idFase` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT de la tabla `pagos`
+-- AUTO_INCREMENT for table `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `idPago` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idPago` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `transportes`
+-- AUTO_INCREMENT for table `transportes`
 --
 ALTER TABLE `transportes`
-  MODIFY `idTransporte` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `eventos`
---
-ALTER TABLE `eventos`
-  ADD CONSTRAINT `eventos_ibfk_1` FOREIGN KEY (`idTransporte`) REFERENCES `transportes` (`idTransporte`);
-
---
--- Constraints for table `experiencias`
---
-ALTER TABLE `experiencias`
-  ADD CONSTRAINT `experiencias_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `eventos` (`idEvento`),
-  ADD CONSTRAINT `experiencias_ibfk_2` FOREIGN KEY (`idFase`) REFERENCES `fases` (`idFase`),
-  ADD CONSTRAINT `experiencias_ibfk_3` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`);
-
---
--- Constraints for table `fases`
---
-ALTER TABLE `fases`
-  ADD CONSTRAINT `fases_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `eventos` (`idEvento`);
-
---
--- Constraints for table `pagos`
---
-ALTER TABLE `pagos`
-  ADD CONSTRAINT `pagos_ibfk_1` FOREIGN KEY (`idExperiencia`) REFERENCES `experiencias` (`idExperiencia`);
+  MODIFY `idTransporte` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

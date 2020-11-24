@@ -6,7 +6,7 @@ function insertarPago($con){
     $fecha = date("Y/m/d");
     if($idExperiencia AND $monto AND $metodo){
 	// Consultando ID de nombre de evento seleccionado	
-	$SQL = "INSERT INTO pagos(monto, método, fechaPago, idExperiencia) VALUES ('$monto','$metodo','$fecha','$idExperiencia')";
+	$SQL = "INSERT INTO pagos(monto, metodo, fechaPago, idExperiencia) VALUES ('$monto','$metodo','$fecha','$idExperiencia')";
 	consultar($con,$SQL);
 	$SQL = "SELECT idExperiencia, pagado FROM experiencias WHERE idExperiencia='$idExperiencia';";
 	$Resultado = consultar($con, $SQL);
@@ -15,6 +15,7 @@ function insertarPago($con){
 	$pagado = $pagado + $monto;
 	$SQL = "UPDATE experiencias SET pagado='$pagado' WHERE idExperiencia='$idExperiencia';";
 	$Resultado = consultar($con, $SQL);
+	header('Location: pagos.php');
     }
 }
 ?>
