@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2020 a las 19:56:31
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.11
+-- Host: localhost
+-- Generation Time: Nov 11, 2020 at 07:34 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -105,7 +106,27 @@ CREATE TABLE `pagos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `transportes`
+-- Table structure for table `prueba`
+--
+
+CREATE TABLE `prueba` (
+  `nombre` varchar(40) NOT NULL,
+  `apellido` varchar(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `prueba`
+--
+
+INSERT INTO `prueba` (`nombre`, `apellido`) VALUES
+('Juanito', ''),
+('Benito', 'Cam'),
+('Benito', 'Cam');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transportes`
 --
 
 CREATE TABLE `transportes` (
@@ -203,6 +224,36 @@ ALTER TABLE `pagos`
 --
 ALTER TABLE `transportes`
   MODIFY `idTransporte` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `eventos`
+--
+ALTER TABLE `eventos`
+  ADD CONSTRAINT `eventos_ibfk_1` FOREIGN KEY (`idTransporte`) REFERENCES `transportes` (`idTransporte`);
+
+--
+-- Constraints for table `experiencias`
+--
+ALTER TABLE `experiencias`
+  ADD CONSTRAINT `experiencias_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `eventos` (`idEvento`),
+  ADD CONSTRAINT `experiencias_ibfk_2` FOREIGN KEY (`idFase`) REFERENCES `fases` (`idFase`),
+  ADD CONSTRAINT `experiencias_ibfk_3` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`);
+
+--
+-- Constraints for table `fases`
+--
+ALTER TABLE `fases`
+  ADD CONSTRAINT `fases_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `eventos` (`idEvento`);
+
+--
+-- Constraints for table `pagos`
+--
+ALTER TABLE `pagos`
+  ADD CONSTRAINT `pagos_ibfk_1` FOREIGN KEY (`idExperiencia`) REFERENCES `experiencias` (`idExperiencia`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -48,35 +48,17 @@ $con = conectar();
 		<input type="submit" name="submitButton">
 		</p>
     </form>
-		<form id="buscarExperiencia" name="buscarExperiencia" method="post" action="">
-    <p>
-			<label>
-				<input type="text" name="buscar">
-			</label>
-	</p>
-		<input type="submit" name="buscarButton">
-    </form>
-		<?php
-		include("insertarExperiencia.php");
-		include("mostrarExperiencia.php");
-		if(isset($_POST['submitButton'])){ //check if form was submitted
-		    insertarExperiencia($con);
-		}
-		?>
-		    <table style='border: 1px solid black; border-collapse: collapse;'>
-		    <tr>
-		        <th style='border: 1px solid black;'>DESCUENTO</th>
-		        <th style='border: 1px solid black;'>PAGADO</th>
-						<th style='border: 1px solid black;'>EVENTO</th>
-		        <th style='border: 1px solid black;'>FASE</th>
-		        <th style='border: 1px solid black;'>CLIENTE</th>
-						<th style='border: 1px solid black;'>EDITAR</th>
-		        <th style='border: 1px solid black;'>ELIMINAR</th>
-		    </tr>
-		<?php
-		    mostrarExperiencia($con);
-		    desconectar($con);
-		?>
+<?php
+include("insertarExperiencia.php");
+if(isset($_POST['submitButton'])){ //check if form was submitted
+    insertarExperiencia($con);
+}
+?>
+<?php
+include("mostrarExperiencias.php");
+mostrarExperiencias($con);
+desconectar($con);
+?>
 
 </body>
 </html>

@@ -11,26 +11,24 @@ function mostrarEventos($con){
     for ($i=0; $i < $n; $i++) {
         print("<tr>");
         $Fila = mysqli_fetch_row($Resultado);
-        for ($x=0; $x < count($Fila); $x++){
-                		if($x==1)
-                		{
-
-                                    print("<td style='border: 1px solid black;'>".$Fila[$x]." at ".$Fila[$x+1]."</td>");
-                		    $x=$x+1;
-                                }
-                		else if($x==3)
-                		{
-
-                                    print("<td style='border: 1px solid black;'>".$Fila[$x]." at ".$Fila[$x+1]."</td>");
-                		    $x=$x+1;
-                                }
-                        else if($x==7){
-
-                        }
-                		else
-                		{
-                                    print("<td style='border: 1px solid black;'>".$Fila[$x]."</td>");
-                		}
+        for ($x=0; $x < count($Fila); $x++) 
+	{
+		if($x==1)
+		{
+		
+                    print("<td style='border: 1px solid black;'>".$Fila[$x]." at ".$Fila[$x+1]."</td>");
+		    $x=$x+1;
+                }
+		else if($x==3)
+		{
+		
+                    print("<td style='border: 1px solid black;'>".$Fila[$x]." at ".$Fila[$x+1]."</td>");
+		    $x=$x+1;
+                }
+		else
+		{
+                    print("<td style='border: 1px solid black;'>".$Fila[$x]."</td>");
+		}
         }
         print("<th style='border: 1px solid black;'></th>");
         print("<th style='border: 1px solid black;'><a href=EliminarEvento.php?Id=$Fila[7]>Eliminar</th>");
