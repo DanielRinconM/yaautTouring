@@ -2,7 +2,7 @@
 function mostrarTransportes($con){
     if(isset($_POST['buscarButton'])){ //check if form was submitted
         $buscar = $_POST['buscar'];
-        $SQL = "SELECT * FROM trasnportes WHERE nombreTransporte LIKE '$buscar%' OR tipo LIKE '$buscar%' OR capacidad LIKE '$buscar%' OR nombreEmpresa LIKE '$buscar%' OR incioPrestamo LIKE '$buscar%' OR finPrestamo LIKE '$buscar%' OR costo LIKE '$buscar%' ORDER BY tipo, capacidad, costo";
+        $SQL = "SELECT * FROM transportes WHERE nombreTransporte LIKE '$buscar%' OR tipo LIKE '$buscar%' OR capacidad LIKE '$buscar%' OR nombreEmpresa LIKE '$buscar%' OR inicioPrestamo LIKE '$buscar%' OR finPrestamo LIKE '$buscar%' OR costo LIKE '$buscar%' ORDER BY tipo, capacidad, costo";
     }else{
     $SQL = "SELECT * FROM transportes ORDER BY tipo, capacidad, costo";
     }
@@ -19,9 +19,9 @@ function mostrarTransportes($con){
                 }
         }
         print("<th style='border: 1px solid black;'></th>");
-        print("<th style='border: 1px solid black;'></th>");
+        print("<th style='border: 1px solid black;'><a href=EliminarTransporte.php?Id=$Fila[0]>Eliminar</th>");
         print("</tr>");
-    }	
+    }
     print("</table>");
     print("Número total de registros: ".$n);
 }

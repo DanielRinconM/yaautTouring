@@ -1,5 +1,5 @@
 <html>
-<body>    
+<body>
 <?php
 include("conexion.php");
 $con = conectar();

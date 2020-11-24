@@ -94,12 +94,12 @@ if($nombreEvento AND $fechaInicio AND $fechaFinal AND $horaInicio AND $horaFinal
 	if($n>0)
 	{
 		echo "Ya existe un evento con el mismo nombre y fecha";
-		$validate = "false";
+		$validate = false;
 	}
 	else
 	{
 
-		$validate = "true";
+		$validate = true;
 	}
 	if( $validate == true)	
 	{
