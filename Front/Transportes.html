@@ -11,7 +11,7 @@
 	<div class="Canvas">
 		<div class="Header">
 			<input type="checkbox" id="Check">
-			<label for="Check" class="IconMenu"><img class="MenuImg" src="Resources/Menu.png"></label>
+			<label for="Check" class="IconMenu" onclick="cambio()"><img id="MenuImg" src="Resources/menu.png"></label>
 
 			<!-- AQUI INICIA EL MENU LATERAL -->
 
@@ -35,7 +35,7 @@
 
 			<!-- AQUI TERMINA EL MENU LATERAL -->
 
-			<div class="Fondo"></div>
+			<div id="Fondo"></div>
 			<img class="Logo" src="Resources/logo.png">
 		</div>
 
@@ -78,9 +78,50 @@
 
 		<!-- AQUI TERMINA EL FORMULARIO DE ENTRADA DE DATOS -->
 
+		<div id="Pantalla">
+			<div class="extensor"></div>
+			<div id="Mensaje">
+				<h1>Eliminar registro</h1>
+				<div class="Contenido">
+					<p>¿Está seguro de querer eliminar este registro?.</p>
+				</div>
+				<button class="BtnAcept">Aceptar</button>
+				<button class="BtnCancel" onclick="Cerrar('Pantalla')">Cancelar</button>
+			</div>
+		</div>
+
 		<span class="Transporte">
 			<h1>Transportes</h1>
+			<div class="Search">
+				<input type="input" name="inputSearch" class="SearchBar">
+				<button class="BtnSearch">Buscar</button>
+			</div>
+			<table class="TabTransport">
+				<tr>
+					<th>Nombre</th>
+					<th>Capacidad</th>
+					<th>Inicio del préstamo</th>
+					<th>Fin del préstamo</th>
+					<th>Tipo</th>
+					<th>Costo</th>
+					<th>Empresa</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<td>Prueba N</td>
+					<td>Prueba C</td>
+					<td>Prueba I</td>
+					<td>Prueba F</td>
+					<td>Prueba T</td>
+					<td>Prueba CO</td>
+					<td>Prueba E</td>
+					<td><img id="editar" src="Resources/editar.png" onmouseover="sobre('editar')" onmouseout="fuera('editar')"></td>
+					<td><img id="basura" src="Resources/basura.png" onmouseover="sobre('basura')" onmouseout="fuera('basura')" onclick="Envanecer('Pantalla')"></td>
+				</tr>
+			</table>
 		</span>
 	</div>
 </body>
+<script src="Funciones.js"></script>
 </html>

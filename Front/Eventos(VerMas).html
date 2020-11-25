@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>YaautTouring</title>
+	<link href="Estilos.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="Canvas">
+		<div class="Header" id="otro">
+			<img id="MenuImg" src="Resources/regresar.png" onclick="document.location='Eventos.html'">
+			<div id="Fondo"></div>
+			<img class="Logo" src="Resources/logo.png">
+		</div>
+
+		<!-- AQUI INICIA EL FORMULARIO DE ENTRADA DE DATOS -->
+
+		<span class="InfoEvento">
+			<h1>Informacion del evento</h1>
+			<div class="Name">
+				<p>Nombre:</p>
+				<input type="text" name="inputName">
+			</div>
+			<div class="Type">
+				<p>Tipo:</p>
+				<select name="inputType">
+					<option>Seleccione una opción</option>
+				</select>
+			</div>
+			<div class="Place">
+				<p>Lugar:</p>
+				<input type="text" name="inputPlace">
+			</div>
+			<div class="DateStart">
+				<p>Fecha de inicio:</p>
+				<input type="date" name="inputStart">
+			</div>
+			<div class="TimeStart">
+				<p>Hora de inicio:</p>
+				<input type="time" name="inputTStart">
+			</div>
+			<div class="Status">
+				<p>Status:</p>
+				<input type="text" name="inputStatus">
+			</div>
+			<div class="DateEnd">
+				<p>Fecha de finzalización:</p>
+				<input type="date" name="inputEnd">
+			</div>
+			<div class="TimeEnd">
+				<p>Hora de finalización:</p>
+				<input type="time" name="inputTEnd">
+			</div>
+			<div class="Banner">
+				<p>Banner:</p>
+				<div class="BannerDiv">
+					
+				</div>
+			</div>
+		</span>
+
+		<!-- AQUI TERMINA EL FORMULARIO DE ENTRADA DE DATOS -->
+
+		<div id="PantallaMens">
+			<div class="extensor"></div>
+			<div id="Mensaje">
+				<h1>Eliminar registro</h1>
+				<div class="Contenido">
+					<p>¿Está seguro de querer eliminar este registro?.</p>
+				</div>
+				<button class="BtnAcept">Aceptar</button>
+				<button class="BtnCancel" onclick="Cerrar('PantallaMens')">Cancelar</button>
+			</div>
+		</div>
+
+		<span class="Info">
+			<h1 class="T1">Fases</h1>
+			<table class="TabFaseInfo">
+				<tr>
+					<th>Nombre</th>
+					<th>Fecha de finalización</th>
+					<th>Precio</th>
+				</tr>
+				<tr>
+					<td>Prueba N</td>
+					<td>Prueba FF</td>
+					<td>Prueba P</td>
+				</tr>
+			</table>
+			<h1 class="T2">Transportes</h1>
+			<table class="TabFaseInfo">
+				<tr>
+					<th>Nombre</th>
+					<th>Capacidad</th>
+					<th>Tipo</th>
+					<th>Costo</th>
+					<th>Empresa</th>
+				</tr>
+				<tr>
+					<td>Prueba N</td>
+					<td>Prueba CA</td>
+					<td>Prueba T</td>
+					<td>Prueba CO</td>
+					<td>Prueba E</td>
+				</tr>
+			</table>
+		</span>
+
+		<span class="InfoX">
+			<h1>Asistentes</h1>
+			<table class="TabFaseInfo">
+				<tr>
+					<th>Nombre</th>
+					<th>A. Paterno</th>
+					<th>A. Materno</th>
+					<th>Teléfono</th>
+					<th>Correo Electrónico</th>
+					<th></th>
+				</tr>
+				<tr>
+					<td>Prueba N</td>
+					<td>Prueba AP</td>
+					<td>Prueba AM</td>
+					<td>Prueba T</td>
+					<td>Prueba C</td>
+					<td><img id="basura" src="Resources/basura.png" onmouseover="sobre('basura')" onmouseout="fuera('basura')" onclick="Envanecer('PantallaMens')"></td>
+				</tr>
+			</table>
+		</span>
+	</div>
+</body>
+<script src="Funciones.js"></script>
+</html>

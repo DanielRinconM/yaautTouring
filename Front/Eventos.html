@@ -11,7 +11,7 @@
 	<div class="Canvas">
 		<div class="Header">
 			<input type="checkbox" id="Check">
-			<label for="Check" class="IconMenu"><img class="MenuImg" src="Resources/Menu.png"></label>
+			<label for="Check" class="IconMenu" onclick="cambio()"><img id="MenuImg" src="Resources/menu.png"></label>
 
 			<!-- AQUI INICIA EL MENU LATERAL -->
 
@@ -35,7 +35,7 @@
 
 			<!-- AQUI TERMINA EL MENU LATERAL -->
 
-			<div class="Fondo"></div>
+			<div id="Fondo"></div>
 			<img class="Logo" src="Resources/logo.png">
 		</div>
 
@@ -79,15 +79,81 @@
 				<p>Hora de finalización:</p>
 				<input type="time" name="inputTEnd">
 			</div>
-			<button class="BtnNew">Registrar fase</button>
+			<button class="BtnEvento" onclick="Envanecer('Pantalla')">Registrar fase</button>
 			<button class="BtnAcept">Aceptar</button>
 		</span>
 
 		<!-- AQUI TERMINA EL FORMULARIO DE ENTRADA DE DATOS -->
 
+		<div id="Pantalla">
+			<div class="extensor"></div>
+			<div id="RegistroFase">
+				<h1>Registro de fase</h1>
+				<div class="Event">
+					<p>Evento:</p>
+					<select name="inputEvent">
+						<option>Seleccione una opción</option>
+					</select>
+				</div>
+				<div class="DateEnd">
+					<p>Fecha de finzalización:</p>
+					<input type="date" name="inputEnd">
+				</div>
+				<div class="Name">
+					<p>Nombre:</p>
+					<input type="text" name="inputName">
+				</div>
+				<div class="Price">
+					<p>Precio:</p>
+					<input type="text" name="inputPrice">
+				</div>
+					<button class="BtnAcept">Aceptar</button>
+					<button class="BtnCancel" onclick="Cerrar('Pantalla')">Cancelar</button>
+				</div>
+		</div>
+
+		<div id="PantallaMens">
+			<div class="extensor"></div>
+			<div id="Mensaje">
+				<h1>Eliminar registro</h1>
+				<div class="Contenido">
+					<p>¿Está seguro de querer eliminar este registro?.</p>
+				</div>
+				<button class="BtnAcept">Aceptar</button>
+				<button class="BtnCancel" onclick="Cerrar('PantallaMens')">Cancelar</button>
+			</div>
+		</div>
+
 		<span class="Evento">
 			<h1>Eventos</h1>
+			<div class="Search">
+				<input type="input" name="inputSearch" class="SearchBar">
+				<button class="BtnSearch">Buscar</button>
+			</div>
+			<table class="TabEvent">
+				<tr>
+					<th>Nombre</th>
+					<th>Fecha de inicio</th>
+					<th>Fecha de finalización</th>
+					<th>Lugar</th>
+					<th>Status</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<td>Prueba N</td>
+					<td>Prueba FI</td>
+					<td>Prueba FF</td>
+					<td>Prueba L</td>
+					<td>Prueba S</td>
+					<td><img id="ver" src="Resources/ver.png" onmouseover="sobre('ver')" onmouseout="fuera('ver')" onclick="document.location='Eventos(VerMas).html'"></td>
+					<td><img id="editar" src="Resources/editar.png" onmouseover="sobre('editar')" onmouseout="fuera('editar')"></td>
+					<td><img id="basura" src="Resources/basura.png" onmouseover="sobre('basura')" onmouseout="fuera('basura')" onclick="Envanecer('PantallaMens')"></td>
+				</tr>
+			</table>
 		</span>
 	</div>
 </body>
+<script src="Funciones.js"></script>
 </html>

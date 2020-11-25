@@ -11,7 +11,7 @@
 	<div class="Canvas">
 		<div class="Header">
 			<input type="checkbox" id="Check">
-			<label for="Check" class="IconMenu"><img class="MenuImg" src="Resources/Menu.png"></label>
+			<label for="Check" class="IconMenu" onclick="cambio()"><img id="MenuImg" src="Resources/menu.png"></label>
 
 			<!-- AQUI INICIA EL MENU LATERAL -->
 
@@ -35,7 +35,7 @@
 
 			<!-- AQUI TERMINA EL MENU LATERAL -->
 
-			<div class="Fondo"></div>
+			<div id="Fondo"></div>
 			<img class="Logo" src="Resources/logo.png">
 		</div>
 
@@ -74,9 +74,93 @@
 
 		<!-- AQUI TERMINA EL FORMULARIO DE ENTRADA DE DATOS -->
 
+		<div id="Pantalla">
+			<div class="extensor"></div>
+			<div id="Mensaje">
+				<h1>Eliminar registro</h1>
+				<div class="Contenido">
+					<p>¿Está seguro de querer eliminar este registro?.</p>
+				</div>
+				<button class="BtnAcept">Aceptar</button>
+				<button class="BtnCancel" onclick="Cerrar('Pantalla')">Cancelar</button>
+			</div>
+		</div>
+
+		<div id="RegPago">
+			<div class="extensor"></div>
+			<div id="MensajeReg">
+				<h1>Registrar pago</h1>
+				<div class="Pay">
+					<p>Monto:</p>
+					<input type="text" name="inputPay">
+				</div>
+				<div class="Method">
+					<p>Método de pago:</p>
+					<select name="inputMethod">
+						<option>Seleccione una opción</option>
+					</select>
+				</div>
+				<button class="BtnAcept">Aceptar</button>
+				<button class="BtnCancel" onclick="Cerrar('RegPago')">Cancelar</button>
+			</div>
+		</div>
+
+		<div id="ShPago">
+			<div class="extensor"></div>
+			<div id="MensajeSh">
+				<h1>Ver pagos</h1>
+				<p>Ejemplo1 - EventoEJ 1</p>
+				<table class="TabPay">
+					<tr>
+						<th>Monto</th>
+						<th>Metódo de pago</th>
+						<th>Fecha del pago</th>
+					</tr>
+					<tr>
+						<td>Prueba M</td>
+						<td>Prueba Me</td>
+						<td>Prueba F</td>
+					</tr>
+				</table>
+				<button class="BtnAcept" onclick="Cerrar('ShPago')">Aceptar</button>
+			</div>
+		</div>
+
 		<span class="Experiencia">
 			<h1>Experiencias</h1>
+			<div class="Search">
+				<input type="input" name="inputSearch" class="SearchBar">
+				<button class="BtnSearch">Buscar</button>
+			</div>
+			<table class="TabExp">
+				<tr>
+					<th>Cliente</th>
+					<th>Evento</th>
+					<th>Fase</th>
+					<th>Fecha límite</th>
+					<th>Pagado</th>
+					<th>Pendiente</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<td>Prueba C</td>
+					<td>Prueba E</td>
+					<td>Prueba F</td>
+					<td>Prueba FE</td>
+					<td>Prueba P</td>
+					<td>Prueba PE</td>
+					<td><button class="BtnRegPay" onclick="Envanecer('RegPago')">Registrar pago</button></td>
+					<td><button class="BtnShPay" onclick="Envanecer('ShPago')">Ver pagos</button></td>
+					<td><img id="editar" src="Resources/editar.png" onmouseover="sobre('editar')" onmouseout="fuera('editar')"></td>
+					<td><img id="basura" src="Resources/basura.png" onmouseover="sobre('basura')" onmouseout="fuera('basura')" onclick="Envanecer('Pantalla')"></td>
+				</tr>
+			</table>
+		</span>
 		</span>
 	</div>
 </body>
+<script src="Funciones.js"></script>
 </html>
