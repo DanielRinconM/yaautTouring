@@ -1,6 +1,8 @@
 <html>
 <body>    
-<form id="formularioEventos" name="formularioEventos" method="post" action="">
+<form id="formularioEventos" name="formularioEventos" method="post" action="" enctype="multipart/form-data">
+
+
 		<p>
 			<label>
 				Nombre:
@@ -40,7 +42,9 @@
 		<p>
 			<label>
 				Banner:
-				<input type="text" name="banner" maxlength=10 required>
+				  <input type="file" name="fileToUpload" id="fileToUpload">
+
+
 			</label>
 		</p>
 		<p>
@@ -76,6 +80,8 @@ include("mostrarEventos.php");
 $con = conectar();
 if(isset($_POST['submitButton'])){ //check if form was submitted
     insertarEvento($con);
+
+  
 }
 ?>
     <table style='border: 1px solid black; border-collapse: collapse;'>

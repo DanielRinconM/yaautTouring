@@ -3,7 +3,7 @@
 <head>
 <script defer type="text/javascript" src="funciones.js"></script>
 </head>
-<body>
+<body>    
 <?php
 include("conexion.php");
 $con = conectar();
@@ -30,7 +30,7 @@ $con = conectar();
 			<label>
 				Cliente:
 				<select name="idCliente">
-				<?php
+				<?php 
 				$sql = mysqli_query($con, "SELECT nombre, apellidoPaterno, idCliente FROM clientes");
 				while ($row = $sql->fetch_assoc()){
 					echo "<option value=\"".$row['idCliente']."\">" . $row['nombre'] ." ".$row['apellidoPaterno']."</option>";
@@ -77,6 +77,7 @@ $con = conectar();
 		    mostrarExperiencia($con);
 		    desconectar($con);
 		?>
+
 
 </body>
 </html>

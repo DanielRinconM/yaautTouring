@@ -22,6 +22,7 @@ function mostrarTransportes($con){
         print("<th style='border: 1px solid black;'></th>");
         print("</tr>");
     }
+
     print("</table>");
     print("Número total de registros: ".$n);
 }

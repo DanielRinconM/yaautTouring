@@ -34,7 +34,6 @@ function mostrarEventos($con){
         print("</tr>");
     }
     print("</table>");
-
     print("Número total de registros: ".$n);
 }
 ?>
