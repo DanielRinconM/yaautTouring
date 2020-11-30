@@ -1,6 +1,8 @@
 <html>
 <body>    
 <form id="formularioEventos" name="formularioEventos" method="post" action="" enctype="multipart/form-data">
+
+
 		<p>
 			<label>
 				Nombre:
@@ -41,6 +43,8 @@
 			<label>
 				Banner:
 				  <input type="file" name="fileToUpload" id="fileToUpload">
+
+
 			</label>
 		</p>
 		<p>
@@ -77,6 +81,7 @@ $con = conectar();
 if(isset($_POST['submitButton'])){ //check if form was submitted
     insertarEvento($con);
 
+  
 }
 ?>
     <table style='border: 1px solid black; border-collapse: collapse;'>

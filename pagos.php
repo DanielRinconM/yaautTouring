@@ -1,5 +1,5 @@
 <html>
-<body>    
+<body>
 <?php
 include("conexion.php");
 $con = conectar();
@@ -13,6 +13,7 @@ $con = conectar();
 				Experiencia:
 				<select name="idExperiencia">
 				<?php
+
 				$sql = "SELECT experiencias.idExperiencia, experiencias.idCliente, experiencias.pagado, experiencias.descuento,
 					clientes.nombre as nombreCliente, clientes.apellidoPaterno,
 					eventos.nombreEvento,

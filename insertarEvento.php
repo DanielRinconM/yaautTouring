@@ -1,5 +1,6 @@
 <?php
 
+
 function insertarEvento($con){
 	$nombreEvento = $_POST['nombreEvento'];
     $fechaInicio = $_POST['fechaInicio'];
