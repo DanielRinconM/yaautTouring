@@ -1,0 +1,854 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	font-family: 'Karla', sans-serif;
+	background: #F3F3F3;
+	color: #000000;
+	font-weight: 300;
+	font-size: 16px;
+}
+
+
+/* ESTILOS DE PAGINA LOGIN */
+
+	.Log {
+		width: 100%;
+		max-width: 1920px;
+		height: 100%;
+		display: grid;
+		grid-template-rows: 60px auto;
+	}
+
+	.Login {
+		background: #FFFFFF;
+		color: #000000;
+		align-self: center;
+		justify-self: center;
+		padding: 20px;
+		display: grid;
+		grid-gap: 20px;
+		grid-template-rows: repeat(4, auto);
+		box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+	}
+
+	.Login input {
+		width: 300px;
+	}
+
+	.User{
+		align-self: center;
+		justify-self: center;
+	}
+
+	.Password{
+		align-self: center;
+		justify-self: center;
+	}
+
+	.Login .BtnAcept {
+		margin-top: 50px;
+		align-self: center;
+		justify-self: center;
+	}
+
+/* ESTILOS DE PAGINA CLIENTES */
+
+	.Canvas {
+		width: 100%;
+		max-width: 1920px;
+		display: grid;
+		grid-gap: 40px;
+		grid-template-rows: repeat(3, auto);
+	}
+
+		.Header {
+			background: #3B2E5A;
+			color: white;
+			padding-right: 10px;
+			height: 60px;
+			box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+			display: grid;
+			grid-gap: 5px;
+			grid-template-columns: repeat(2, auto);
+		}
+
+			#Check {
+				display: none;
+			}
+
+			#Check:checked ~ .Menu {
+				width: 300px;
+			}
+
+			#Check:checked ~ .IconMenu {
+				transform: translate(300px, 0);
+			}
+
+			#Check:checked ~ #Fondo {
+				visibility: visible !important;
+				background: rgba(196 ,196 ,196, 0.5) !important;
+			}
+
+
+			.IconMenu {
+				margin-left: 10px;
+				grid-column: 1;
+				grid-row: 1;
+				align-self: center;
+				transition: all 300ms ease;
+				z-index: 2;
+			}
+
+			#MenuImg {
+				cursor: pointer;
+				align-self: center;
+			}
+
+			.Menu {
+				padding-top: 60px;
+				position: fixed;
+				width: 0px;
+				max-width: 300px;
+				height: 100%;
+				background: #3B2E5A;
+				display: grid;
+				grid-template-rows: repeat(6, 80px);
+				transition: all 300ms;
+				overflow: hidden;
+				z-index: 2;
+				box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.25);
+			}
+
+			.Clientes {
+				grid-row: 1;
+			}
+
+			.Tranportes {
+				grid-row: 2;
+			}
+
+			.Experiencias {
+				grid-row: 3;
+			}
+
+			.Eventos {
+				grid-row: 4;
+			}
+
+			.LogOut {
+				grid-row: 5;
+			}
+
+			.Logo {
+				grid-column: 2;
+				grid-row: 1;
+				align-self: center;
+				justify-self: end;
+			}
+
+			img {
+				width: 45px;
+				height: 45px;
+			}
+
+		span {
+			margin-right: 40px;
+			margin-left: 40px;
+			padding: 20px;
+			background: #FFFFFF;
+			color: #000000;
+			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+			display: grid;
+			grid-gap: 20px;
+			grid-template-columns: repeat(5, auto);
+			grid-template-rows: repeat(3);
+		}
+
+			h1 {
+				grid-column: 1 / -1;
+				grid-row: 1;
+			}
+
+			p {
+				font-size: 20px;
+				margin-bottom: 10px;
+			}
+
+			input,
+			select {
+				width: 250px;
+				height: 30px;
+				background: #F3F3F3;
+				border: 1px solid #000000;
+				border-radius: 10px;
+				font-size: 16px;
+				padding: 0 10px;
+				outline: none;
+			}
+
+			button {
+				outline: none;
+				border: none;
+				cursor: pointer;
+			}
+
+			#Btn {
+				color: #FFFFFF;
+				font-size: 20px;
+				text-align: left;
+				padding: 20px;
+				border-radius: 0;
+				background: #3B2E5A;
+				width: 300px;
+			}
+
+			#Btn:hover {
+				background: #5C5174;
+			}
+
+			.BtnAcept {
+				width: 150px;
+				height: 30px;
+				font-size: 16px;
+				border-radius: 10px;
+				color: #FFFFFF;
+				font-weight: bold;
+				background: #4EA0AE;
+			}
+
+			.RegCliente .Name {
+				grid-column: 1;
+				grid-row: 2;
+			}
+
+			.RegCliente .FName {
+				grid-column: 2;
+				grid-row: 2;
+			}
+
+			.RegCliente .LName {
+				grid-column: 3;
+				grid-row: 2;
+			}
+
+			.RegCliente .Birthday {
+				grid-column: 4;
+				grid-row: 2;
+			}
+
+			.RegCliente .Phone {
+				grid-column: 1;
+				grid-row: 3;
+			}
+
+			.RegCliente .Email {
+				grid-column: 2;
+				grid-row: 3;
+			}
+
+			.RegCliente .Location {
+				grid-column: 3;
+				grid-row: 3;
+			}
+
+			.RegCliente .BtnAcept {
+				background: #4EA0AE;
+				grid-column: 5;
+				grid-row: 3;
+				align-self: end;
+			}
+
+	#Fondo {
+		visibility: hidden;
+		position: fixed;
+		width: 100%;
+		max-width: 1920px;
+		height: 100%;
+		background: rgba(196 ,196 ,196, 0.0);
+		z-index: 1;
+		transition: all 300ms !important;
+		display: grid;
+		grid-template-rows: 60px auto;
+	}
+
+	.Cliente {
+		grid-template-rows: repeat(3, auto);
+		grid-template-columns: auto;
+	}
+
+		.SearchBar {
+			width: 400px;
+		}
+
+		.BtnSearch {
+			width: 150px;
+			height: 30px;
+			font-size: 16px;
+			border-radius: 10px;
+			color: #FFFFFF;
+			font-weight: bold;
+			background: #4EA0AE;
+		}
+
+		.BtnSearch:hover {
+			background: #6CAEB9;
+		}
+
+		table {
+  			border-collapse: collapse;
+  			width: 100%;
+  			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+				border: 1px solid #000000;
+				border-radius: 1em;
+				overflow: hidden;
+				font-size: 16px;
+				outline: none;
+		}
+
+		td, th {
+  			text-align: left;
+  			padding: 3px;
+		}
+
+		th {
+			background: #394989;
+			color: #FFFFFF;
+		}
+
+		tr {
+			background: #FFFFFF;
+			height: 35px;
+		}
+
+		tr:nth-child(even) {
+  			background: #F3F3F3;
+		}
+
+			#editar{
+				width: 30px;
+				height: 30px;
+				margin: auto;
+				display: block;
+				cursor: pointer;
+			}
+
+			#basura{
+				width: 30px;
+				height: 30px;
+				margin: auto;
+				display: block;
+				cursor: pointer;
+			}
+
+			#Mensaje {
+				background: #FFFFFF;
+				color: #000000;
+				align-self: center;
+				justify-self: center;
+				padding: 20px;
+				display: grid;
+				grid-gap: 20px;
+				grid-template-rows: repeat(3, auto);
+				grid-template-columns: repeat(2, auto);
+				box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+			}
+
+			#Mensaje h1 {
+				grid-column-start: 1;
+				grid-column-end: 3;
+			}
+
+			#Mensaje div {
+				grid-column-start: 1;
+				grid-column-end: 3;
+				grid-row: 2;
+			}
+
+			#Mensaje .BtnAcept {
+				grid-column: 1;
+				grid-row: 4;
+				justify-self: center;
+			}
+
+			.BtnCancel {
+				width: 150px;
+				height: 30px;
+				font-size: 16px;
+				border-radius: 10px;
+				color: #FFFFFF;
+				font-weight: bold;
+				background: #DA5656;
+			}
+
+			#Mensaje .BtnCancel {
+				grid-column: 2;
+				grid-row: 4;
+				justify-self: center;
+			}
+
+			.BtnCancel:hover {
+				background: #D86F6F;
+			}
+/* ESTILOS DE PAGINA TRANSPORTES */
+
+			.RegTransporte .Name {
+				grid-column: 1;
+				grid-row: 2;
+			}
+
+			.RegTransporte .Capacity {
+				grid-column: 2;
+				grid-row: 2;
+			}
+
+			.RegTransporte .Type {
+				grid-column: 3;
+				grid-row: 2;
+			}
+
+			.RegTransporte .Cost {
+				grid-column: 4;
+				grid-row: 2;
+			}
+
+			.RegTransporte .Enterprise {
+				grid-column: 1;
+				grid-row: 3;
+			}
+
+			.RegTransporte .DateStart {
+				grid-column: 2;
+				grid-row: 3;
+			}
+
+			.RegTransporte .DateEnd {
+				grid-column: 3;
+				grid-row: 3;
+			}
+
+			.RegTransporte .BtnAcept {
+				background: #4EA0AE;
+				grid-column: 5;
+				grid-row: 3;
+				align-self: end;
+			}
+
+			.BtnAcept:hover {
+				background: #6CAEB9;
+			}
+
+			.Transporte {
+				grid-template-rows: repeat(3, auto);
+				grid-template-columns: auto;
+			}
+/* ESTILOS DE PAGINA EXPERIENCIAS */
+
+			.RegExperiencia .Event {
+				grid-column: 1;
+				grid-row: 2;
+			}
+
+			.RegExperiencia .Client {
+				grid-column: 2;
+				grid-row: 2;
+			}
+
+			.RegExperiencia .Discount {
+				grid-column: 3;
+				grid-row: 2;
+			}
+
+			.RegExperiencia .Fase {
+				grid-column: 1;
+				grid-row: 3;
+			}
+
+			.RegExperiencia .DateStart {
+				grid-column: 2;
+				grid-row: 3;
+			}
+
+			.RegExperiencia .BtnAcept {
+				background: #4EA0AE;
+				grid-column: 5;
+				grid-row: 3;
+				align-self: end;
+			}
+
+			.BtnAcept:hover {
+				background: #6CAEB9;
+			}
+
+			.Experiencia {
+				grid-template-rows: repeat(3, auto);
+				grid-template-columns: auto;
+			}
+
+			.TabExp button {
+				width: 140px;
+				height: 30px;
+				font-size: 16px;
+				border-radius: 10px;
+				color: #FFFFFF;
+				font-weight: bold;
+				background: #4EA0AE;
+				margin: auto;
+				display: block;
+			}
+
+			.BtnRegPay:hover {
+				background: #6CAEB9;
+			}
+
+			.BtnShPay:hover {
+				background: #6CAEB9;
+			}
+
+			#RegPago {
+				position: fixed;
+				width: 100%;
+				max-width: 1920px;
+				height: 100%;
+				z-index: 1;
+				display: grid;
+				grid-template-rows: 60px auto;
+			}
+			#RegFase {
+				position: fixed;
+				width: 100%;
+				max-width: 1920px;
+				height: 100%;
+				z-index: 1;
+				display: grid;
+				grid-template-rows: 60px auto;
+			}
+				#MensajeReg {
+					background: #FFFFFF;
+					color: #000000;
+					align-self: center;
+					justify-self: center;
+					padding: 20px;
+					display: grid;
+					grid-gap: 20px;
+					grid-template-rows: repeat(4, auto);
+					grid-template-columns: repeat(2, auto);
+					box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+				}
+
+					#MensajeReg h1 {
+						grid-column-start: 1;
+						grid-column-end: 3;
+					}
+
+					#MensajeReg .Pay {
+						grid-column-start: 1;
+						grid-column-end: 3;
+					}
+
+						.Pay input {
+							width: 100%;
+						}
+
+					#MensajeReg .Method {
+						grid-column-start: 1;
+						grid-column-end: 3;
+					}
+
+						.Method select {
+							width: 100%;
+						}
+
+			#ShPago {
+				visibility: hidden;
+				position: fixed;
+				width: 100%;
+				max-width: 1920px;
+				height: 100%;
+				z-index: 1;
+				display: grid;
+				grid-template-rows: 60px auto;
+			}
+
+				#MensajeSh {
+					background: #FFFFFF;
+					color: #000000;
+					align-self: center;
+					justify-self: center;
+					padding: 20px;
+					display: grid;
+					grid-gap: 20px;
+					grid-template-rows: repeat(4, auto);
+					grid-template-columns: repeat(1, auto);
+					box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+				}
+
+					#MensajeSh p {
+						margin-top: -15px;
+					}
+
+					#MensajeSh .BtnAcept {
+						justify-self: center;
+					}
+
+/* ESTILOS DE PAGINA EVENTOS */
+
+			.RegEvento .Name {
+				grid-column: 1;
+				grid-row: 2;
+			}
+
+			.RegEvento .DateStart {
+				grid-column: 2;
+				grid-row: 2;
+			}
+
+			.RegEvento .TimeStart {
+				grid-column: 3;
+				grid-row: 2;
+			}
+
+			.RegEvento .Place {
+				grid-column: 4;
+				grid-row: 2;
+			}
+
+			.RegEvento .Banner {
+				grid-column: 5;
+				grid-row: 2;
+			}
+
+			.RegEvento .Type {
+				grid-column: 1;
+				grid-row: 3;
+			}
+
+			.RegEvento .DateEnd {
+				grid-column: 2;
+				grid-row: 3;
+			}
+
+			.RegEvento .TimeEnd {
+				grid-column: 3;
+				grid-row: 3;
+			}
+
+			.RegEvento .BtnAcept {
+				background: #4EA0AE;
+				grid-column: 5;
+				grid-row: 3;
+				align-self: end;
+			}
+
+			.BtnEvento {
+				width: 150px;
+				height: 30px;
+				font-size: 16px;
+				border-radius: 10px;
+				color: #FFFFFF;
+				font-weight: bold;
+				background: #4EA0AE;
+				align-self: flex-end;
+				justify-self: center;
+			}
+
+			.BtnEvento:hover {
+				background: #6CAEB9;
+			}
+
+
+			.BtnAcept:hover {
+				background: #6CAEB9;
+			}
+
+			#Pantalla {
+				visibility: hidden;
+				position: fixed;
+				width: 100%;
+				max-width: 1920px;
+				height: 100%;
+				z-index: 1;
+				display: grid;
+				grid-template-rows: 60px auto;
+			}
+
+			#RegistroFase {
+				background: #FFFFFF;
+				color: #000000;
+				align-self: center;
+				justify-self: center;
+				padding: 20px;
+				display: grid;
+				grid-gap: 20px;
+				grid-template-rows: repeat(4, auto);
+				grid-template-columns: repeat(2, auto);
+				box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+			}
+
+				#RegistroFase .BtnAcept {
+					grid-column: 1;
+					grid-row: 4;
+					justify-self: end;
+				}
+
+				.BtnCancel {
+					width: 150px;
+					height: 30px;
+					font-size: 16px;
+					border-radius: 10px;
+					color: #FFFFFF;
+					font-weight: bold;
+					background: #DA5656;
+				}
+
+				#RegistroFase .BtnCancel {
+					grid-column: 2;
+					grid-row: 4;
+				}
+
+				.BtnCancel:hover {
+					background: #D86F6F;
+				}
+
+			.Evento {
+				grid-template-rows: repeat(3, auto);
+				grid-template-columns: auto;
+			}
+
+				#ver{
+					width: 30px;
+					height: 30px;
+					margin: auto;
+					display: block;
+					cursor: pointer;
+				}
+
+				#PantallaMens {
+					visibility: hidden;
+					position: fixed;
+					width: 100%;
+					max-width: 1920px;
+					height: 100%;
+					z-index: 1;
+					display: grid;
+					grid-template-rows: 60px auto;
+				}
+
+/* ESTILOS DE PAGINA EVENTOS (VERMAS) */
+
+	.InfoEvento {
+		margin-right: 40px;
+		margin-left: 40px;
+		padding: 20px;
+		background: #FFFFFF;
+		color: #000000;
+		box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+		display: grid;
+		grid-gap: 20px;
+		grid-template-columns: repeat(4, auto);
+		grid-template-rows: repeat(5, auto);
+	}
+
+		.InfoEvento h1 {
+			grid-column-start: 1;
+			grid-column-end: 3;
+		}
+
+		.InfoEvento .Name {
+			grid-column: 1;
+			grid-row: 2;
+		}
+
+		.InfoEvento .Type {
+			grid-column: 2;
+			grid-row: 2;
+		}
+
+		.InfoEvento .Place {
+			grid-column: 3;
+			grid-row: 2;
+		}
+
+		.InfoEvento .DateStart {
+			grid-column: 1;
+			grid-row: 3;
+		}
+
+		.InfoEvento .TimeStart {
+			grid-column: 2;
+			grid-row: 3;
+		}
+
+		.InfoEvento .Status {
+			grid-column: 3;
+			grid-row: 3;
+		}
+
+		.InfoEvento .DateEnd {
+			grid-column: 1;
+			grid-row: 4;
+		}
+
+		.InfoEvento .TimeEnd {
+			grid-column: 2;
+			grid-row: 4;
+		}
+
+		.InfoEvento .Banner {
+			grid-column: 4;
+			grid-row: 2;
+			grid-row-start: 2;
+			grid-row-end: 5;
+		}
+
+			.InfoEvento .BannerDiv {
+				width: 350px;
+				height: 350px;
+				background: green;
+			}
+
+		.Info {
+			margin-right: 40px;
+			margin-left: 40px;
+			padding: 20px;
+			background: #FFFFFF;
+			color: #000000;
+			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+			display: grid;
+			grid-gap: 20px;
+			grid-template-columns: repeat(2, auto);
+			grid-template-rows: repeat(2, auto);
+		}
+
+			.Info .T1 {
+				grid-column: 1;
+				grid-row: 1;
+			}
+
+			.Info .T2 {
+				grid-column: 2;
+				grid-row: 1;
+			}
+
+		.InfoX {
+			margin-right: 40px;
+			margin-left: 40px;
+			padding: 20px;
+			background: #FFFFFF;
+			color: #000000;
+			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+			display: grid;
+			grid-gap: 20px;
+			grid-template-columns: repeat(1, auto);
+			grid-template-rows: repeat(2, auto);
+		}
+
+		#otro #MenuImg {
+			margin-left: 10px;
+		}
