@@ -506,7 +506,6 @@ body {
 			}
 
 			#RegPago {
-				visibility: hidden;
 				position: fixed;
 				width: 100%;
 				max-width: 1920px;
@@ -656,6 +655,16 @@ body {
 
 			#Pantalla {
 				visibility: hidden;
+				position: fixed;
+				width: 100%;
+				max-width: 1920px;
+				height: 100%;
+				z-index: 1;
+				display: grid;
+				grid-template-rows: 60px auto;
+			}
+
+			#RegFase {
 				position: fixed;
 				width: 100%;
 				max-width: 1920px;

@@ -86,25 +86,6 @@
 			</div>
 		</div>
 
-		<div id="RegPago">
-			<div class="extensor"></div>
-			<div id="MensajeReg">
-				<h1>Registrar pago</h1>
-				<div class="Pay">
-					<p>Monto:</p>
-					<input type="text" name="inputPay">
-				</div>
-				<div class="Method">
-					<p>Método de pago:</p>
-					<select name="inputMethod">
-						<option>Seleccione una opción</option>
-					</select>
-				</div>
-				<button class="BtnAcept">Aceptar</button>
-				<button class="BtnCancel" onclick="Cerrar('RegPago')">Cancelar</button>
-			</div>
-		</div>
-
 		<div id="ShPago">
 			<div class="extensor"></div>
 			<div id="MensajeSh">
@@ -152,7 +133,7 @@
 					<td>Prueba FE</td>
 					<td>Prueba P</td>
 					<td>Prueba PE</td>
-					<td><button class="BtnRegPay" onclick="Envanecer('RegPago')">Registrar pago</button></td>
+					<td><button class="BtnRegPay" onclick="document.location='RegistrarPago.html'">Registrar pago</button></td>
 					<td><button class="BtnShPay" onclick="Envanecer('ShPago')">Ver pagos</button></td>
 					<td><img id="editar" src="Resources/editar.png" onmouseover="sobre('editar')" onmouseout="fuera('editar')"></td>
 					<td><img id="basura" src="Resources/basura.png" onmouseover="sobre('basura')" onmouseout="fuera('basura')" onclick="Envanecer('Pantalla')"></td>
