@@ -41,6 +41,10 @@ function mostrarExperiencias($con){
     $b = "basura";
     $dir = "./Resources/basura.png";
     $class = "BtnRegPay";
+    $class2 = "intro";
+    $href = "RegistrarPago.php";
+    $type = "button";
+    $value = "Pagar";
 	while ($row = mysqli_fetch_array($resultado))
 	{
 		$descuento = ($row['precio']*$row['descuento'])/100;
@@ -53,8 +57,7 @@ function mostrarExperiencias($con){
       		<td>".$row['nombreFase']."</td>
       		<td>".$row['pagado']."</td>
       		<td>".$debe."</td>";
-    $env="Envanecer('RegPago')";
-    print("<td><button class=$class onclick=$env>Registrar pago</button></td>");
+   	print("<td><a href=$href class=$class2><input type=$type class=$class value=$value></a></td>");
     $env="Envanecer('ShPago')";
     $class = "BtnShPay";
     print("<td><button class=$class onclick=$env>Ver pagos</button></td>");
