@@ -27,7 +27,7 @@ function insertarFase($con){
 			if($nombreFase AND $precio){
 				$SQL = "INSERT INTO fases(nombre, precio, fechaFinal, idEvento) VALUES ('$nombreFase','$precio','$fechaFinal','$idEvento')";
 				consultar($con,$SQL);
-				header('Location: fases.php');
+				header('Location: eventos.php');
 				}
 			}
 		}

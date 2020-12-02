@@ -34,10 +34,6 @@ function mostrarEventos($con){
         $dir = "./Resources/basura.png";
         $p = 'Pantalla';
         print("<td><a href=Back/EliminarEvento.php?Id=$Fila[0]><img id=$id src=$dir></td>");
-        $id="ver";
-        $dir="./Resources/ver.png";
-        $env="document.location='Eventos(VerMas).html'";
-        print("<td><img id=$id src=$dir onclick=$env></td>");
         print("</tr>");
     }
     print("</table>");

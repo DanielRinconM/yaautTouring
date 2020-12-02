@@ -25,7 +25,6 @@ function insertarExperiencia($con){
 	    echo $idFase;
             if($idFase){
                 $SQL = "INSERT INTO experiencias(descuento, pagado, idEvento, idFase, idCliente) VALUES ('$descuento','0','$idEvento','$idFase','$idCliente')";
-                echo $SQL;
                 consultar($con, $SQL);
                 }
 	    else{

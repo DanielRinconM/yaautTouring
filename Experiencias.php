@@ -32,9 +32,6 @@
 				<button id="Btn" class="Eventos" onclick="document.location='Eventos.php'">
 					Eventos
 				</button>
-				<button id="Btn" class="LogOut" onclick="document.location='Login.php'">
-					Cerrar Sesión
-				</button>
 			</nav>
 
 			<!-- AQUI TERMINA EL MENU LATERAL -->

@@ -15,7 +15,7 @@ function insertarPago($con){
 	$pagado = $pagado + $monto;
 	$SQL = "UPDATE experiencias SET pagado='$pagado' WHERE idExperiencia='$idExperiencia';";
 	$Resultado = consultar($con, $SQL);
-	header('Location: pagos.php');
+	header('Location: experiencias.php');
     }
 }
 ?>
