@@ -82,38 +82,11 @@
 					<p>Hora de finalización:</p>
 					<input type="time" name="horaFinal">
 				</div>
-				<button class="BtnEvento" onclick="Envanecer('Pantalla')">Registrar fase</button>
+				<a href="RegistrarFase.php" class="intr"><input type="button" class="BtnEvento" value="Registrar fase"></a>
 				<button class="BtnAcept" name="submitButton">Aceptar</button>
 			</span>
 		</form>
 		<!-- AQUI TERMINA EL FORMULARIO DE ENTRADA DE DATOS -->
-
-		<div id="Pantalla">
-			<div class="extensor"></div>
-			<div id="RegistroFase">
-				<h1>Registro de fase</h1>
-				<div class="Event">
-					<p>Evento:</p>
-					<select name="inputEvent">
-						<option>Seleccione una opción</option>
-					</select>
-				</div>
-				<div class="DateEnd">
-					<p>Fecha de finzalización:</p>
-					<input type="date" name="inputEnd">
-				</div>
-				<div class="Name">
-					<p>Nombre:</p>
-					<input type="text" name="inputName">
-				</div>
-				<div class="Price">
-					<p>Precio:</p>
-					<input type="text" name="inputPrice">
-				</div>
-					<button class="BtnAcept">Aceptar</button>
-					<button class="BtnCancel" onclick="Cerrar('Pantalla')">Cancelar</button>
-				</div>
-		</div>
 
 		<div id="PantallaMens">
 			<div class="extensor"></div>

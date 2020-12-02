@@ -102,25 +102,6 @@
 			</div>
 		</div>
 
-		<div id="RegPago">
-			<div class="extensor"></div>
-			<div id="MensajeReg">
-				<h1>Registrar pago</h1>
-				<div class="Pay">
-					<p>Monto:</p>
-					<input type="text" name="inputPay">
-				</div>
-				<div class="Method">
-					<p>Método de pago:</p>
-					<select name="inputMethod">
-						<option>Seleccione una opción</option>
-					</select>
-				</div>
-				<button class="BtnAcept">Aceptar</button>
-				<button class="BtnCancel" onclick="Cerrar('RegPago')">Cancelar</button>
-			</div>
-		</div>
-
 		<div id="ShPago">
 			<div class="extensor"></div>
 			<div id="MensajeSh">
